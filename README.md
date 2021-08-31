@@ -1,2 +1,2 @@
 # fullstack-pathway
-My learning pathway to became a full stack developer.
+My learning pathway to becoming a full stack developer.

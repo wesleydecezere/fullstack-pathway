@@ -15,6 +15,9 @@ _**Cargo**: Front-end Lead | Easynvest_
 2. Aplicando conceitos Rest, Spread Operadotor e Destructuring (okzinho)
 3. Introdução a Generators [35min]
 4. Aplicando conceitos Promises e Fetch (vai ser massa) [50 min]
+   * callbacks e promises
+   * fetch, asynv/await e eventemitter
+   * aplicando e praticando os conceitos
 5. Conceitos aplicados a qualidade de código e automação de testes em JS [60 min]
 6. Tratamentos e exceções [35 min]
 

@@ -4,9 +4,7 @@ _**Instrutor**: Celso Henrique da Silva_
 
 _**Cargo**: Front-end Lead | Easynvest_
 
-
-
-### Aplicando conceitos de Operators Rest e Spread de e Destructuring
+### Aplicando conceitos Rest, Spread Operadotor e Destructuring
 
 #### 1. Rest Operator
 
@@ -20,8 +18,6 @@ function soma(...args){
 console.log(soma(1,2,5,1)) 
 // 9
 ```
-
-
 
 #### 2. Spread Operator
 
@@ -38,7 +34,7 @@ LogArgs(...str)
 // ["F", "a", ..., "r", "a"]
 ```
 
-Também pode ser utilizado para construir novos objetos com base em outro objeto literal. Contudo,  o clone não funciona para objetos dentro de objetos (neasted); ao invés disso, ele passa a referência ao objeto. 
+Também pode ser utilizado para construir novos objetos com base em outro objeto literal. Contudo,  o clone não funciona para objetos dentro de objetos (neasted); ao invés disso, ele passa a referência ao objeto.
 
 ```javascript
 const obj  = {
@@ -53,9 +49,7 @@ const obj2 = {
 console.log()
 ```
 
-
-
-#### 3. Destructuring 
+#### 3. Destructuring
 
 São úteis para escontruir arrays, objetos, objetos neastes, ou combinações destes.
 
@@ -89,10 +83,3 @@ console.log(sum([5, 5]))
 console.log(sum([]))
 // 0
 ```
-
-
-
-
-
-
-

@@ -1,4 +1,5 @@
 .vscode/
-*/.vscode/
+**/.vscode/
 ref-repo
-*/ref-repo
+**/ref-repo
+**/node_modules

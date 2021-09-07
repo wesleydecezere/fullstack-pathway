@@ -117,7 +117,7 @@ Para rodar o script de fato, basta se referenciar a alguma das chave em `script`
 
 ## 5. BestMe App
 
-Aplicação de perguntas e respostas, no qual será utilizado o Event Listener`process.stdin.on `e `process.stdout` para troca de informações e assincronismo.
+Aplicação de perguntas e respostas, no qual foi utilizado o Event Listener `process.stdin.on `e `process.stdout` para troca de informações e assincronismo.
 
 
 

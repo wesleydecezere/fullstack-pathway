@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<%- include('../partials/head'); %>
+
+  <body class='container'>
+    <%- include('../partials/header') %>
+
+      <main>
+        <div class='p-5 mb-4 text-white bg-dark rounded-3'>
+          <h1>Node com EJS</h1>
+          <p>Vamos aprender a trabalhar com arquivos EJS</p>
+          <p>
+            <%= subtitle %>
+          </p>
+        </div>
+
+        <ul>
+          <% combs.forEach((comb)=> { %>
+            <li>
+              <strong>
+                <%= comb.title %>
+              </strong>
+              <%= comb.message %>
+            </li>
+            <% }) %>
+        </ul>
+      </main>
+
+      <%- include('../partials/footer') %>
+  </body>
+
+</html>

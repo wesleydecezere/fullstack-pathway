@@ -4,7 +4,7 @@
 
 ## 1. Criando o HTML
 
-Estrutura de `header`, `main` e `footer ` criada com HTML e estilizada com Boostrap.
+Estrutura de `header`, `main` e `footer ` criada com HTML e estilizada com **Boostrap**.
 
 
 

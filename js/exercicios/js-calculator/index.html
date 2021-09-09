@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora com JS</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script type="text/javascript" src='./js/index.js'></script>
+</head>
+
+<body>
+  <main class='container'>
+    <div class='visor'>
+      <div class="visor-hist">aaa</div>
+      <div class="visor-line">123456</div>
+    </div>
+    <div class='keyboard'>
+      <div class='keyboard-line'>
+        <div class='key'>%</div>
+        <div class='key'>CE</div>
+        <div class='key'>C</div>
+        <div class='key' onClick='erase(this)'>bsp</div>
+      </div>
+      <div class='keyboard-line'>
+        <div class='key'>1/x</div>
+        <div class='key'>x^2</div>
+        <div class='key'>sqrt</div>
+        <div class='key'>/</div>
+      </div>
+      <div class='keyboard-line'>
+        <div class='key'>7</div>
+        <div class='key'>8</div>
+        <div class='key'>9</div>
+        <div class='key'>X</div>
+      </div>
+      <div class='keyboard-line'>
+        <div class='key'>4</div>
+        <div class='key'>5</div>
+        <div class='key'>6</div>
+        <div class='key'>-</div>
+      </div>
+      <div class='keyboard-line'>
+        <div class='key'>1</div>
+        <div class='key'>2</div>
+        <div class='key'>3</div>
+        <div class='key'>+</div>
+      </div>
+      <div class='keyboard-line'>
+        <div class='key'>+/-</div>
+        <div class='key'>0</div>
+        <div class='key'>,</div>
+        <div class='key'>=</div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

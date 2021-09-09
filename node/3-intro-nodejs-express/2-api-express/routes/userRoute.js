@@ -19,7 +19,7 @@ const saveUser = (users) => {
 }
 
 const userRoute = (app) => {
-  app.route('/users:id?')
+  app.route('/users/:id?')
     .get((req, res) => {
       const users = getUsers()
 
@@ -31,7 +31,7 @@ const userRoute = (app) => {
       users.push(req.body)
       saveUser(users)
 
-      res.status(201).send('OK')
+      res.status(201).send('User created!')
     })
     .put((req, res) => {
       const users = getUsers()
@@ -39,10 +39,21 @@ const userRoute = (app) => {
       saveUser(users.map((user) => {
         if (user.id === req.params.id) {
           return {
-
+            ...user,
+            ...req.body
           }
         }
+        return user
       }))
+
+      res.status(200).send('OK')
+    })
+    .delete((req, res) => {
+      const users = getUsers()
+
+      saveUser(users.filter(user => user.id !== req.params.id))
+
+      res.status(200).send('User deleted!')
     })
 }
 

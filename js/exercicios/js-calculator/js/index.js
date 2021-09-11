@@ -1,6 +1,3 @@
-let operator = ' '
-let answer = 0
-
 function erase() {
   const visorHist = document.getElementsByClassName('visor-hist')
   const visorHistContent = visorHist[0].innerHTML
@@ -17,41 +14,19 @@ function put(value) {
   const visorHist = document.getElementsByClassName('visor-hist')
 
   if (Number.parseInt(value)) {
-    const lastTerms = visorHist[0].innerText
+    let lastExpression = visorHist[0].innerText
       .split('\n').at(-1)
-      .split(operator)
 
-    lastTerms[lastTerms.length - 1] += value
-    answer = calc(lastTerms /*, operator */)
+    lastExpression += value
 
-    document.getElementsByClassName('visor-out')[0].innerHTML = answer
+    document.getElementsByClassName('visor-out')[0].innerHTML = calc(lastExpression)
   } else if (value === '=') {
     value += '<br>'
-  } else {
-    operator = value
   }
 
   visorHist[0].innerHTML += value
 }
 
-
-function calc(operands) {
-  if (operands.length == 1) {
-    return operands[0]
-  }
-
-  console.log(operands)
-  let ans = 0
-
-  switch (operator) {
-    case '+':
-      ans = operands.reduce((acc, value) => { return acc + Number.parseInt(value) }, ans)
-      break
-  }
-
-  return ans
+function calc(expression) {
+  return new Function(`return ${expression}`)()
 }
-
-const tempFunc = (exp) => {
-  return new Function(`return ${exp}`)();
-};

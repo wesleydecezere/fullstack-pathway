@@ -8,31 +8,40 @@
 
 ### Implementar funcionalidades
 
-- [X] Adicionar número
-- [ ] Operações básicas
-  * Conta atual no visor ou no histórico?
-    * windows: numero atual no visor, operação completa no buffer; todas as operações no histórico
-    * **ios**: operação completa no buffer, resultado parcial no visor
-    * cassio: operação completa no buffer (srollable 2D), resultado no visor 
+- [x] Comando adicionar número
+
 - [ ] Limitar numero de caracteres visor
+
+- [x] Conta atual no visor ou no histórico?
+
+  * windows: numero atual no visor, operação completa no buffer; todas as operações no histórico
+
+  * **ios**: operação completa no buffer, resultado parcial no visor
+  * cassio: operação completa no buffer (srollable 2D), resultado no visor 
+
 - [ ] Gerenciar histórico
-  - [x] Recuperar somente última operação (a que ainda não tem '=')
+
   - [ ] Adicionar o resultado anterior à frente, quando inserir somente operador em nova linha
     - [ ] Ao inserir sinal de igual, passar o valor para a próxima linha
-  - [x] Efetuar a operação sempre que inserir um numero
-    - [ ] A cada novo número inserido, processar toda a expressão
-  - [ ] Resgatar resultado anterior para fazer operação atual
-    - [ ] Desta forma, não executaria as operações corretamente
+  - [x] Resolução das operações
+    1. A cada operando inserido, calcular a operação anterior
+    2. A cada novo número inserido, processar toda a expressão
+    3. A cada novo número inserido, resgatar resultado anterior e operador atual para fazer operação atual
+       * Desta forma, não executaria as operações corretamente
   - [ ] Acumular operações
   - [ ] Subir texto quando encher a tela
   - [ ] Deixar caixa srcollabe
+
 - [ ] Limpar histórico
+
 - [ ] Operações avançadas
   - [ ] 1/x
   - [ ] x^2
   - [ ] sqrt
   - [ ] +/-
-- [ ] Tornar o`visor-line` uma`input`
+  
+- [ ] Tornar o `visor-line` uma `input`
+
 - [ ] Permitir inserção de valores e operações por teclado
 
 

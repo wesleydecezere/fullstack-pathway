@@ -10,41 +10,48 @@ function erase() {
 
 function eraseAll() {
   document.getElementsByClassName('visor-hist')[0].innerHTML = ''
+  document.getElementsByClassName('visor-out')[0].innerHTML = '0'
 }
 
 function put(value) {
-  if (!Number.parseInt(value)) {
-    value = calc(value)
-  }
-
-  document.getElementsByClassName('visor-hist')[0].innerHTML += value
-  document.getElementsByClassName('visor-out')[0].innerHTML = answer
-}
-
-
-function calc(newOperator) {
-  const visorLine = document.getElementsByClassName('visor-out')
   const visorHist = document.getElementsByClassName('visor-hist')
-  const lastTerms = visorHist[0].innerText.split('\n').at(-1).split(operator)
-  console.log(lastTerms)
-  let v
 
+  if (Number.parseInt(value)) {
+    const lastTerms = visorHist[0].innerText
+      .split('\n').at(-1)
+      .split(operator)
 
-  if (lastTerms.length != 1) {
-    switch (operator) {
-      case '+':
-        console.log()
-        answer = lastTerms.reduce((acc, val) => acc + Number.parseInt(val), 0)
-        break
-    }
-  } else if (lastTerms[0] === '') {
-    newOperator = `${answer}${newOperator}`
+    lastTerms[lastTerms.length - 1] += value
+    answer = calc(lastTerms /*, operator */)
+
+    document.getElementsByClassName('visor-out')[0].innerHTML = answer
+  } else if (value === '=') {
+    value += '<br>'
+  } else {
+    operator = value
   }
 
-  operator = newOperator
-
-  if (newOperator === '=') {
-    return '=<br>'
-  }
-  return newOperator
+  visorHist[0].innerHTML += value
 }
+
+
+function calc(operands) {
+  if (operands.length == 1) {
+    return operands[0]
+  }
+
+  console.log(operands)
+  let ans = 0
+
+  switch (operator) {
+    case '+':
+      ans = operands.reduce((acc, value) => { return acc + Number.parseInt(value) }, ans)
+      break
+  }
+
+  return ans
+}
+
+const tempFunc = (exp) => {
+  return new Function(`return ${exp}`)();
+};

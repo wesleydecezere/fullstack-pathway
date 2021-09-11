@@ -12,14 +12,17 @@
 - [ ] Operações básicas
   * Conta atual no visor ou no histórico?
     * windows: numero atual no visor, operação completa no buffer; todas as operações no histórico
-    * ios: operação completa no buffer, resultado imediato no visor
+    * **ios**: operação completa no buffer, resultado parcial no visor
     * cassio: operação completa no buffer (srollable 2D), resultado no visor 
 - [ ] Limitar numero de caracteres visor
 - [ ] Gerenciar histórico
   - [x] Recuperar somente última operação (a que ainda não tem '=')
-  - [x] Adicionar o resultado anterior à frente, quando inserir somente operador em nova linha
+  - [ ] Adicionar o resultado anterior à frente, quando inserir somente operador em nova linha
     - [ ] Ao inserir sinal de igual, passar o valor para a próxima linha
-  - [ ] Efetuar a operação sempre que inserir um numero
+  - [x] Efetuar a operação sempre que inserir um numero
+    - [ ] A cada novo número inserido, processar toda a expressão
+  - [ ] Resgatar resultado anterior para fazer operação atual
+    - [ ] Desta forma, não executaria as operações corretamente
   - [ ] Acumular operações
   - [ ] Subir texto quando encher a tela
   - [ ] Deixar caixa srcollabe

@@ -21,18 +21,27 @@
 
 - [ ] Gerenciar histórico
 
-  - [ ] Adicionar o resultado anterior à frente, quando inserir somente operador em nova linha
-    - [ ] Ao inserir sinal de igual, passar o valor para a próxima linha
   - [x] Resolução das operações
     1. A cada operando inserido, calcular a operação anterior
     2. A cada novo número inserido, processar toda a expressão
     3. A cada novo número inserido, resgatar resultado anterior e operador atual para fazer operação atual
        * Desta forma, não executaria as operações corretamente
+
+  - [x] Finalização de expressões
+    - [x] Ao inserir sinal de igual, passar o valor para a próxima linha
+    - [x] Adicionar o resultado anterior à frente, quando inserir somente operador em nova linha
+    - [x] Adicionar resultado da expressão ao seu final e nova expressão abaixo da anterior
+      * Por enquanto, assim ficou melhor. Depois que inserir srcoll, avaliar se fica legar inserir resultado abaixo da expressão (como no windows) 
+
   - [ ] Acumular operações
   - [ ] Subir texto quando encher a tela
   - [ ] Deixar caixa srcollabe
 
-- [ ] Limpar histórico
+- [ ] Gerenciar limpezas
+
+  - [ ] `backspace` permite apagar somente a expressão atual
+  - [ ] `C` limpa todo o hisótico
+  - [ ] `CE` limpa toda a expressão atual
 
 - [ ] Operações avançadas
   - [ ] 1/x

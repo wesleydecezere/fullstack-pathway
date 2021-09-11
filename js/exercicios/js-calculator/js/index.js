@@ -1,8 +1,11 @@
 function erase() {
   const visorHist = document.getElementsByClassName('visor-hist')
-  const visorHistContent = visorHist[0].innerHTML
 
-  visorHist[0].innerHTML = visorHistContent.substring(0, visorHistContent.length - 1)
+  const expressions = visorHist[0].innerHTML.split('<br>')
+  let lastExpression = expressions.at(-1).slice(0, -1).trim()
+  expressions[expressions.length - 1] = lastExpression
+
+  visorHist[0].innerHTML = expressions.join('<br>')
 }
 
 function eraseAll() {
@@ -11,22 +14,28 @@ function eraseAll() {
 }
 
 function put(value) {
+  const visorOut = document.getElementsByClassName('visor-out')
   const visorHist = document.getElementsByClassName('visor-hist')
 
+  let lastExpression = visorHist[0].innerHTML.split('<br>').at(-1)
+  let answer = visorOut[0].innerHTML
+
   if (Number.parseInt(value)) {
-    let lastExpression = visorHist[0].innerText
-      .split('\n').at(-1)
-
     lastExpression += value
-
-    document.getElementsByClassName('visor-out')[0].innerHTML = calc(lastExpression)
+    answer = calc(lastExpression)
+    console.log(answer)
   } else if (value === '=') {
-    value += '<br>'
+    value = ` = ${answer}<br>`
+  } else if (lastExpression.length == 0) {
+    value = `${answer} ${value} `
+  } else {
+    value = ` ${value} `
   }
 
+  visorOut[0].innerHTML = answer
   visorHist[0].innerHTML += value
 }
 
 function calc(expression) {
-  return new Function(`return ${expression}`)()
+  return new Function(`return ${expression} `)()
 }

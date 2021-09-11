@@ -39,9 +39,13 @@
 
 - [ ] Gerenciar limpezas
 
-  - [ ] `backspace` permite apagar somente a expressão atual
-  - [ ] `C` limpa todo o hisótico
+  - [x] `backspace` permite apagar somente a expressão atual
+  - [x] `C` limpa todo o histórico
   - [ ] `CE` limpa toda a expressão atual
+    - [ ] Apagar também o `visor-out`?
+      1. se sim, ao inserir operador na linha em branco, pega o 0  (ou '') como primeiro operando
+      2. se não, pega o resultado parcial da expressão apagada
+      3. em ambos os casos, perde a funcionalidade de recuperar o resultado anterior; interessante seria ainda tê-lo disponível, mas acredito que precisaria armazená-lo globalmente
 
 - [ ] Operações avançadas
   - [ ] 1/x
@@ -57,5 +61,5 @@
 
 ### Refatoração
 
-1. ``getElementByClassName('visor-hist')` um uma única função, assim como para `visor-line`
+1. ``getElementByClassName('visor-hist')` como variável global, assim como `visor-line`
 

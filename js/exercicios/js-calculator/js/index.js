@@ -8,9 +8,16 @@ function erase() {
   visorHist[0].innerHTML = expressions.join('<br>')
 }
 
-function eraseAll() {
+function clearAll() {
   document.getElementsByClassName('visor-hist')[0].innerHTML = ''
   document.getElementsByClassName('visor-out')[0].innerHTML = '0'
+}
+
+function clearEntry() {
+  const visorHist = document.getElementsByClassName('visor-hist')
+
+  visorHist[0].innerHTML = visorHist[0].innerHTML.split('<br>').slice(0, -1).join('<br>') + '<br>'
+  document.getElementsByClassName('visor-out')[0].innerHTML = ''
 }
 
 function put(value) {

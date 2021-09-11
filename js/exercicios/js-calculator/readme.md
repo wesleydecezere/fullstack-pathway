@@ -16,6 +16,10 @@
     * cassio: operação completa no buffer (srollable 2D), resultado no visor 
 - [ ] Limitar numero de caracteres visor
 - [ ] Gerenciar histórico
+  - [x] Recuperar somente última operação (a que ainda não tem '=')
+  - [x] Adicionar o resultado anterior à frente, quando inserir somente operador em nova linha
+    - [ ] Ao inserir sinal de igual, passar o valor para a próxima linha
+  - [ ] Efetuar a operação sempre que inserir um numero
   - [ ] Acumular operações
   - [ ] Subir texto quando encher a tela
   - [ ] Deixar caixa srcollabe
@@ -27,3 +31,10 @@
   - [ ] +/-
 - [ ] Tornar o`visor-line` uma`input`
 - [ ] Permitir inserção de valores e operações por teclado
+
+
+
+### Refatoração
+
+1. ``getElementByClassName('visor-hist')` um uma única função, assim como para `visor-line`
+

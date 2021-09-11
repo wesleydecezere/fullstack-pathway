@@ -1,39 +1,50 @@
 let operator = ' '
+let answer = 0
 
 function erase() {
-  const visorLine = document.getElementsByClassName('visor-line')
-  const visorLineContent = visorLine[0].innerHTML
+  const visorHist = document.getElementsByClassName('visor-hist')
+  const visorHistContent = visorHist[0].innerHTML
 
-  visorLine[0].innerHTML = visorLineContent.substring(0, visorLineContent.length - 1)
+  visorHist[0].innerHTML = visorHistContent.substring(0, visorHistContent.length - 1)
 }
 
 function eraseAll() {
-  document.getElementsByClassName('visor-line')[0].innerHTML = ''
+  document.getElementsByClassName('visor-hist')[0].innerHTML = ''
 }
 
 function put(value) {
   if (!Number.parseInt(value)) {
-    calc(value)
+    value = calc(value)
   }
 
-  document.getElementsByClassName('visor-line')[0].innerHTML += value
+  document.getElementsByClassName('visor-hist')[0].innerHTML += value
+  document.getElementsByClassName('visor-out')[0].innerHTML = answer
 }
 
 
-function calc(op) {
-  const visorLine = document.getElementsByClassName('visor-line')
-  const terms = visorLine[0].innerHTML.split(operator)
+function calc(newOperator) {
+  const visorLine = document.getElementsByClassName('visor-out')
+  const visorHist = document.getElementsByClassName('visor-hist')
+  const lastTerms = visorHist[0].innerText.split('\n').at(-1).split(operator)
+  console.log(lastTerms)
+  let v
 
-  if (terms.length == 1) {
-    operator = op
-  } else {
+
+  if (lastTerms.length != 1) {
     switch (operator) {
       case '+':
         console.log()
-        visorLine[0].innerHTML = terms.reduce((acc, val) => acc + Number.parseInt(val), 0)
-        break;
+        answer = lastTerms.reduce((acc, val) => acc + Number.parseInt(val), 0)
+        break
     }
-    console.log(terms)
+  } else if (lastTerms[0] === '') {
+    newOperator = `${answer}${newOperator}`
   }
 
+  operator = newOperator
+
+  if (newOperator === '=') {
+    return '=<br>'
+  }
+  return newOperator
 }

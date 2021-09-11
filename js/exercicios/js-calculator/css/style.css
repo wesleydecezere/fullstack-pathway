@@ -19,16 +19,19 @@ body {
   padding: 20px;
 }
 
-.visor-hist, .visor-line {
+.visor-hist, .visor-out {
   text-align: right;
 }
 
 .visor-hist {
   height: 70%;
   color: gray;
+  font-size: 20px;
+  font-family: serif;
+  max-height: 70%;
 }
 
-.visor-line {
+.visor-out {
   height: 30%;
   border: 1px solid;
   font-size: 24px;

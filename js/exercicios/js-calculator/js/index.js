@@ -27,7 +27,9 @@ function put(value) {
   let lastExpression = visorHist[0].innerHTML.split('<br>').at(-1)
   let answer = visorOut[0].innerHTML
 
+
   if (Number.parseInt(value)) {
+    if (lastOperandSize(lastExpression) >= 8) return
     lastExpression += value
     answer = calc(lastExpression)
     console.log(answer)
@@ -45,4 +47,17 @@ function put(value) {
 
 function calc(expression) {
   return new Function(`return ${expression} `)()
+}
+
+function lastOperandSize(expression) {
+  const lastOperand = expression.split('').reverse().reduce((n_arr, value, idx, arr) => {
+    if (!Number.parseInt(value) || (idx === arr.length - 1)) {
+      return n_arr.concat(arr.slice(0, idx + 1).join(''))
+    } else {
+      return n_arr
+    }
+
+  }, [])[0]
+
+  return lastOperand === undefined ? 0 : lastOperand.length
 }

@@ -27,7 +27,6 @@ function put(value) {
   let lastExpression = visorHist[0].innerHTML.split('<br>').at(-1)
   let answer = visorOut[0].innerHTML
 
-
   if (Number.parseInt(value)) {
     if (lastOperandSize(lastExpression) >= 8) return
     lastExpression += value

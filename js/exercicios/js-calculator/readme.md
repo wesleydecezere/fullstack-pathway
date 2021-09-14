@@ -10,7 +10,7 @@
 
 - [x] Comando adicionar número
 - [x] Limitar numero de caracteres de entrada em 8 unidades
-  - [ ] Inserir `*10^n` quando `visor-out` ultrapassar x caracteres
+  - [ ] Inserir `*10^n` quando `visor-out` ultrapassar x caracteres OU `ERR`
 - [x] Conta atual no visor ou no histórico?
 
   * windows: numero atual no visor, operação completa no buffer; todas as operações no histórico

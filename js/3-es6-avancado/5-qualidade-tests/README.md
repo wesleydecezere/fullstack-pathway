@@ -43,7 +43,7 @@ Consiste em integrar código com as regras de negócio.
 
 
 
-Para testes com **funções assíncronas**, a biblioteca possibilida passar um parâmetro*callable* chamado `done` para a função de teste invocada no `it`, que permite a finalização do teste somente quando a Promisse estiver finalizada.
+Para testes com **funções assíncronas**, a biblioteca possibilita passar um parâmetro *callable* chamado `done` para a função de teste invocada no `it`, que permite a finalização do teste somente quando a Promisse estiver finalizada.
 
 Neste caso, não é conveniente utilizar arrow functions na função de teste, pois ela não recupera o contexto de invocação e, por isso, não permite alterar o timeot do teste com `this.timeout(new_timeout_value)`
 

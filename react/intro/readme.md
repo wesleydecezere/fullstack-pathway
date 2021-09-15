@@ -26,7 +26,7 @@
 
 ## 3. Conceitos aplicados aos tipos de dados e condições da biblioteca
 
-- [ ] Renderização condicional
-- [ ] Listas e chaves
-- [ ] Manipulação de eventos
-- [ ] Pensando do jeito React
+- [x] Renderização condicional
+- [x] Listas e chaves
+- [x] Manipulação de eventos
+- [x] Pensando do jeito React

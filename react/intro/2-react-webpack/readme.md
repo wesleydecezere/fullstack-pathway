@@ -32,7 +32,7 @@
 
 2. Criar  o arquivo `webpack.config.js` de configuração do webpack
 
-   ```js
+   ```javascript
    const path = require('path')
    
    module.exports = {
@@ -93,7 +93,7 @@
 
 9. Incluir o plugin no arquivo `webpack.config.js`
 
-   ```json
+   ```javascript
    const HtmlWebPackPlugin = require('html-webpack-plugin')
    
    module.exports = {
@@ -108,6 +108,11 @@
    ```
 
 10. Instalar o `webpack-dev-server`
+
+    ```bash
+    npm i -D webpack-dev-server
+    ```
+
 11. Iniciar o dev-server
 
 

@@ -33,7 +33,6 @@
       "error",
       "always"
     ],
-    "no-extra-parens": "error",
     "max-len": [
       "error",
       {

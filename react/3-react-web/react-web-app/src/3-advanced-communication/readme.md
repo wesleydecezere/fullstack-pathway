@@ -128,6 +128,22 @@ x === z // true
 
 ### 3.3 Redux + Rest
 
-#### Redux meeters
 
-#### Importância
+
+#### Redux Middlewares
+
+* Uma camada extra, entre o disparo de uma *action* e o momento em que ela atinge o *reducer*
+* Utilizadas em camadas de APIs de serviço, por exemplo
+* Permite implementar lógica assíncrona
+
+#### 
+
+#### Redux-Thunk
+
+* Um *thunk* é uma função que retorna outra função
+* Instalação `yarn add redux-thunk` 
+
+
+
+
+

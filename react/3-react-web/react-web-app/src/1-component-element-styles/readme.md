@@ -68,6 +68,7 @@ Existem três maneiras de estilizar um elemento
 ### 1.2 Stateful vs Stateless
 
 #### Ciclo de vida
+
 ```mermaid
 flowchart LR
         subgraph Initialization

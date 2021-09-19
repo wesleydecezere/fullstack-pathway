@@ -8,9 +8,11 @@
 
 #### Checklist
 
-- [ ] Rest HTTP com React
-- [ ] Imutabilidade e Redux
-- [ ] Redux + Rest
+### 3.1 Rest HTTP com React
+
+### 3.2 Imutabilidade e Redux
+
+### 3.3 Redux + Rest
 
 
 

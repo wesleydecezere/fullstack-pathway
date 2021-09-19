@@ -2,7 +2,7 @@
 
 **Instrutor**: [Eduardo Costa](https://github.com/eduardogc/digital-one-react-intermediario) | **Posição**: Front-end Engineer na TrackSale
 
-## 1. [Trabalhando com estilos em elementos e componentes](./react-web-app/src/1-component-element-style)
+## 1. [Trabalhando com estilos em elementos e componentes](./react-web-app/src/1-component-element-styles)
 
 - [x] Estilização de componentes e elementos com CSS
 
@@ -14,9 +14,9 @@
 
 ## 2. Introdução ao Redux e fluxos da arquitetura com ReactJS [25min]
 
-- [ ] Flux
-- [ ] Redux
-- [ ] Como desenvolver código com React e Redux
+- [x] Flux
+- [x] Redux
+- [x] Como desenvolver código com React e Redux
 
 
 

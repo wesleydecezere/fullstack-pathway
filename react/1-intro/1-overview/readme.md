@@ -21,7 +21,7 @@
 
 * É uma linguagem declarativa
 * É baseado em componentes
-* Sigle-page application (SPA): só há uma página na aplicação, que é renderizada por partes
+* Single-page application (SPA): só há uma página na aplicação, que é renderizada por partes
 
 
 
@@ -29,15 +29,14 @@
 
 #### Formas de utilizar
 
-* react creat app
-
+* create react app
 * react scripts
 * task runners e bundler sizers
 
 #### Instalação
 
 ```bash
-npnpm install --save react react-dom react-scripts
+npm install --save react react-dom react-scripts
 ```
 
 #### Arquivos básicos

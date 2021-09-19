@@ -12,7 +12,7 @@
 
   
 
-## 2. Introdução ao Redux e fluxos da arquitetura com ReactJS [25min]
+## 2. [Introdução ao Redux e fluxos da arquitetura com ReactJS](./react-web-app/src/2-redux-and-arch)
 
 - [x] Flux
 - [x] Redux

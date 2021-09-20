@@ -22,9 +22,9 @@
 
 ## 3. Comunicação avançada entre aplicação [60min]
 
-- [ ] Rest HTTP com React
-- [ ] Imutabilidade e Redux
-- [ ] Redux + Rest
+- [x] Rest HTTP com React
+- [x] Imutabilidade e Redux
+- [x] Redux + Rest
 
 
 

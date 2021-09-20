@@ -68,7 +68,7 @@
 
 #### Aplicação no React
 
-* Em um *Funciton Component*, a primeira requisição pode ser feita no método `useEfect`, equivalente ao `componentDidMount` em um *Class Component*
+* Em um *Funciton Component*, a primeira requisição pode ser feita no método `useEffect`, equivalente ao `componentDidMount` em um *Class Component*
 
 
 
@@ -128,15 +128,11 @@ x === z // true
 
 ### 3.3 Redux + Rest
 
-
-
 #### Redux Middlewares
 
 * Uma camada extra, entre o disparo de uma *action* e o momento em que ela atinge o *reducer*
 * Utilizadas em camadas de APIs de serviço, por exemplo
 * Permite implementar lógica assíncrona
-
-#### 
 
 #### Redux-Thunk
 

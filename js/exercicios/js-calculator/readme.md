@@ -9,14 +9,17 @@
 ### Implementar funcionalidades
 
 - [x] Comando adicionar número
+
 - [x] Limitar numero de caracteres de entrada em 8 unidades
   - [ ] Inserir `*10^n` quando `visor-out` ultrapassar x caracteres OU `ERR`
+  
 - [x] Conta atual no visor ou no histórico?
 
   * windows: numero atual no visor, operação completa no buffer; todas as operações no histórico
 
   * **ios**: operação completa no buffer, resultado parcial no visor
   * cassio: operação completa no buffer (srollable 2D), resultado no visor 
+  
 - [ ] Gerenciar histórico
 
   - [x] Resolução das operações
@@ -32,8 +35,19 @@
       * Por enquanto, assim ficou melhor. Depois que inserir srcoll, avaliar se fica legar inserir resultado abaixo da expressão (como no windows) 
 
   - [x] Acumular operações
-  - [ ] Subir texto quando encher a tela
-  - [ ] Deixar caixa srcollabe
+
+  - [x] Deixar caixa srcollabe
+
+    - [x] Scroll vertical
+
+    - [x] Subir texto quando encher a tela
+
+    - [ ] Scroll horizonal quando expressão atual ultrapassar largura do visor
+
+      * `  white-space: nowrap;`
+
+      - Teria que alinhar todo o seu conteúdo à esquerda e retornar a `scrollLeft = 0` sempre que iniciar uma nova linha
+  
 - [ ] Gerenciar limpezas
 
   - [x] `backspace` permite apagar somente a expressão atual
@@ -43,17 +57,34 @@
       1. se sim, ao inserir operador na linha em branco, pega o 0  (ou '') como primeiro operando
       2. se não, pega o resultado parcial da expressão apagada
       3. em ambos os casos, perde a funcionalidade de recuperar o resultado anterior; interessante seria ainda tê-lo disponível, mas acredito que precisaria armazená-lo globalmente
+  
 - [ ] Operações avançadas
-  - [ ] 1/x
-  - [ ] x^2
-  - [ ] sqrt
+  - [x] 1/x
+  - [x] x^2: x**2
+  - [x] sqrt: x**1/2
+  - [ ] Refinar implementações anteriores
   - [ ] +/-
-- [ ] Tornar o `visor-line` uma `input`
+  - [ ] .
+  
+- [x] Tornar o `visor-out` uma `input`
+
+  - [x] Sempre direcionar entrada de texto à input: `onBlur='this.focus()'`
+  - [x] Limitar caracteres: apaga último caractere do `visor-out` quando último operando do `vistor-hist` é maior que 8
+  - [x] Eliminar borda e cursor piscante
+
 - [ ] Permitir inserção de valores e operações por teclado
+
+  - [ ] Gerenciar melhor inserção e identificação dos caracteres
+
+### Estilização
+
+#### `visor-hist`
+
+- [ ] definir `height` e `font-size` de modo que não corte a visualização de nenhuma informação
 
 
 
 ### Refatoração
 
-1. ``getElementByClassName('visor-hist')` como variável global, assim como `visor-line`
+1. `getElementByClassName('visor-hist')` como variável global, assim como `visor-line`
 

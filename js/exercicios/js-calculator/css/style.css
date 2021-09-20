@@ -32,7 +32,7 @@ body {
 .visor-hist {
   height: 70%;
   max-height: 70%;
-  overflow: scroll;
+  overflow-y: scroll;
   padding-right: 5px;
 }
 
@@ -44,10 +44,6 @@ body {
 .visor-hist::-webkit-scrollbar-button {
   width: 0;
   height: 0;
-}
-
-.visor-hist::-webkit-scrollbar-track {
-  border-radius: 5px;
 }
 
 .visor-hist::-webkit-scrollbar-thumb {
@@ -62,6 +58,9 @@ body {
   height: 30%;
   border: 1px solid;
   font-size: 24px;
+  cursor: default;
+  outline: none;
+  caret-color: transparent;
 }
 
 .keyboard {

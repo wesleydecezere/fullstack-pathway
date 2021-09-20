@@ -1,34 +1,40 @@
 function erase() {
-  const visorHist = document.getElementsByClassName('visor-hist')
+  const visorHist = document.getElementsByClassName('visor-hist')[0]
 
-  const expressions = visorHist[0].innerHTML.split('<br>')
+  const expressions = visorHist.innerHTML.split('<br>')
   let lastExpression = expressions.at(-1).slice(0, -1).trim()
   expressions[expressions.length - 1] = lastExpression
 
-  visorHist[0].innerHTML = expressions.join('<br>')
+  visorHist.innerHTML = expressions.join('<br>')
 }
 
 function clearAll() {
   document.getElementsByClassName('visor-hist')[0].innerHTML = ''
-  document.getElementsByClassName('visor-out')[0].innerHTML = '0'
+  document.getElementsByClassName('visor-out')[0].value = '0'
 }
 
 function clearEntry() {
-  const visorHist = document.getElementsByClassName('visor-hist')
+  const visorHist = document.getElementsByClassName('visor-hist')[0]
 
-  visorHist[0].innerHTML = visorHist[0].innerHTML.split('<br>').slice(0, -1).join('<br>') + '<br>'
-  document.getElementsByClassName('visor-out')[0].innerHTML = ''
+  visorHist.innerHTML = visorHist.innerHTML.split('<br>').slice(0, -1).join('<br>') + '<br>'
+  document.getElementsByClassName('visor-out')[0].value = ''
 }
 
 function put(value) {
-  const visorOut = document.getElementsByClassName('visor-out')
-  const visorHist = document.getElementsByClassName('visor-hist')
+  const visorOut = document.getElementsByClassName('visor-out')[0]
+  const visorHist = document.getElementsByClassName('visor-hist')[0]
 
-  let lastExpression = visorHist[0].innerHTML.split('<br>').at(-1)
-  let answer = visorOut[0].innerHTML
+  let lastExpression = visorHist.innerHTML.split('<br>').at(-1)
+  let answer = visorOut.value
 
-  if (Number.parseInt(value)) {
-    if (lastOperandSize(lastExpression) >= 8) return
+  console.log(value)
+
+  if (Number.parseFloat(value) || value == '0') {
+    if (lastOperandSize(lastExpression) >= 8) {
+      visorOut.value = answer.slice(0, -1)
+      return
+    }
+
     lastExpression += value
     answer = calc(lastExpression)
     console.log(answer)
@@ -40,11 +46,12 @@ function put(value) {
     value = ` ${value} `
   }
 
-  visorOut[0].innerHTML = answer
-  visorHist[0].innerHTML += value
+  visorOut.value = answer
+  visorHist.innerHTML += value
+  visorHist.scrollTop = visorHist.scrollHeight
 }
 
-function calc(expression) {
+function calc(expression = 0) {
   return new Function(`return ${expression} `)()
 }
 
@@ -60,3 +67,10 @@ function lastOperandSize(expression) {
 
   return lastOperand === undefined ? 0 : lastOperand.length
 }
+
+const visorOut = document.querySelector('input')
+
+
+
+
+

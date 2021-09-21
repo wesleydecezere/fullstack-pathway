@@ -26,7 +26,6 @@ function put(value) {
 
   let lastExpression = visorHist.innerHTML.split('<br>').at(-1)
   let answer = visorOut.value
-
   console.log(value)
 
   if (Number.parseFloat(value) || value == '0') {

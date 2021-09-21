@@ -90,7 +90,7 @@
 * No React, Imutabilidade é sinônimo de performance 
 * Obtida por `shouldComponentUpdate` ou `React.PureComponent`, esta que confere menor nível de controle do *re-render*
 
-#### `Immutable.js`
+`Immutable.js`
 
 * Fornece coleções persistentes e imutáveis
 * Permite a detecção barata de alterações nos objetos

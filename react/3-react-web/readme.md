@@ -20,7 +20,7 @@
 
 
 
-## 3. Comunicação avançada entre aplicação [60min]
+## 3. [Comunicação avançada entre aplicação](./react-web-app/src/3-advanced-communication)
 
 - [x] Rest HTTP com React
 - [x] Imutabilidade e Redux
@@ -28,10 +28,18 @@
 
 
 
-## 4. Conceitos aplicados à qualidade de código e automação de testes em React [50min]
+## 4. [Conceitos aplicados à qualidade de código e automação de testes em React](./react-web-app/src/4-test)
 
-- [ ] Intro a testes em React
-- [ ] TDD e BDD com Jest
-- [ ] Debugging
-- [ ] Tratamento de erros
+- [x] Intro a testes em React
+- [x] TDD e BDD com Jest
+- [x] Debugging
+- [x] Tratamento de erros
+
+
+
+## Observação
+
+Durante as aulas, foi criada uma aplicação React que contém alguns dos exemplos trabalhados. Para executá-la, clone este repositório, acesse a pasta `react-web-app` e execute o comando `yarn start`. Para orientações detalhadas, confira o [readme](./react-web-app/README.md) gerado automaticamente na criação do projeto.
+
+
 

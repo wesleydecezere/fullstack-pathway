@@ -135,13 +135,92 @@ Feature: Soma um Par
 
 
 
-
-
 ### 4.3 Debugging
+
+#### Definição
+
+> Encontrar e reduzir defeitos em um software
+
+#### Formas de fazer
+
+* Manualmente
+* De cabeça
+* Logging
+* Ferramentas
+  * Chrome DevTools
+  * Redux DevTools
+  * React DevTools
+
+#### Ferramentas de Debugging
+
+Inserir a palavra-chave `debugger` em um techo do código insere um breakpoint naquela linha no *DevTools*.
 
 
 
 ### 4.4 Tratamento de erros
 
+#### Definição
 
+> Confere resiliência e segurança ao software
 
+#### Exemplo em funções
+
+##### `soma.js`
+
+```js
+export const soma = (a, b) => a + b
+```
+
+##### `somaSegura.js`
+
+```js
+export const somaSegura = (a, b) => {
+    if (typeof a === 'number' && typeof b == 'number') {
+        return a + b
+    } else {
+        return -1
+    }
+```
+
+#### Exemplo em Form
+
+##### `Form.jsx`
+
+```jsx
+<form onSubmit={this.handleSubmit} style={}>
+	<label>
+    	Nome:
+        <input type='text' value={this.state.value} onChange={this.handleChange} required></input>
+    </label>
+    <input type='submit' value='Submit'></input>
+</form>
+```
+
+#### Exemplo em retorno de APIs
+
+##### `exibirMensagem.js`
+
+```js
+function exibirMensagem() {
+    if(codigo === 401) alert('Faça login para continuar')
+    if(codigo === 404) alert('Recurso não encontrado')
+    if(codigo === 500) alert('Erro interno de servidor')
+}
+```
+
+#### Exemplos em Componentes
+
+##### PropTypes
+
+```jsx
+import React from 'react'
+import PropTypes from 'prop-types'
+
+export const Basic = ({ name }) => {
+	<p>Meu nome é {name}</p>
+}
+
+Basic.propTypes = {
+    name: PropTypes.string
+}
+```

@@ -28,7 +28,7 @@ function put(value) {
   let answer = visorOut.value
   console.log(value)
 
-  if (Number.parseFloat(value) || value == '0') {
+  if (!isNaN(value)) {
     if (lastOperandSize(lastExpression) >= 8) {
       visorOut.value = answer.slice(0, -1)
       return
@@ -40,9 +40,11 @@ function put(value) {
   } else if (value === '=') {
     value = ` = ${answer}<br>`
   } else if (lastExpression.length == 0) {
+    // caso do undefined
     value = `${answer} ${value} `
   } else {
     value = ` ${value} `
+    answer = answer.slice(0, -1)
   }
 
   visorOut.value = answer
@@ -56,7 +58,7 @@ function calc(expression = 0) {
 
 function lastOperandSize(expression) {
   const lastOperand = expression.split('').reverse().reduce((n_arr, value, idx, arr) => {
-    if (!Number.parseInt(value) || (idx === arr.length - 1)) {
+    if (isNaN(value) || (idx === arr.length - 1)) {
       return n_arr.concat(arr.slice(0, idx + 1).join(''))
     } else {
       return n_arr
@@ -67,7 +69,19 @@ function lastOperandSize(expression) {
   return lastOperand === undefined ? 0 : lastOperand.length
 }
 
-const visorOut = document.querySelector('input')
+const visorOut = document.getElementsByClassName('visor-out')[0]
+
+visorOut.addEventListener('keydown', (e) => {
+  const key = e.key
+
+  console.log(key)
+
+  if (key === 'Backspace') erase()
+  else if (key === 'Delete') clearEntry()
+  else if (key === 'Enter' || !isNaN(key)) {
+    put(key)
+  }
+})
 
 
 

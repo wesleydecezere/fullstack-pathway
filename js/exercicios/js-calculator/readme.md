@@ -72,9 +72,13 @@
   - [x] Limitar caracteres: apaga último caractere do `visor-out` quando último operando do `vistor-hist` é maior que 8
   - [x] Eliminar borda e cursor piscante
 
-- [ ] Permitir inserção de valores e operações por teclado
+- [ ] Uso do teclado
 
+  - [x] Permitir inserção de valores e operações por teclado
   - [ ] Gerenciar melhor inserção e identificação dos caracteres
+    - [ ] Inserir caracteres de operação (+, =) sem incluí-los no `visor-out`
+    - [x] Aceitar operações, como Enter ou Backspace
+    - [ ] 
 
 ### Estilização
 
@@ -86,5 +90,8 @@
 
 ### Refatoração
 
-1. `getElementByClassName('visor-hist')` como variável global, assim como `visor-line`
-
+- [ ] Eliminar `getElementByClassName`
+  1. `getElementByClassName('visor-hist')` como variável global, assim como `visor-line`
+- [ ] Tirar os *event handler* dos atributos *onevent* do HTML
+  1. Atribuir os eventos com `addEventListener` 
+  2. Atribuindo uma função à propriedade *onevent* do elemento correspondente

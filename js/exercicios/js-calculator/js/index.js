@@ -6,6 +6,7 @@ function erase() {
   expressions[expressions.length - 1] = lastExpression
 
   visorHist.innerHTML = expressions.join('<br>')
+  visorOut.value = calc(lastExpression)
 }
 
 function clearAll() {
@@ -26,17 +27,17 @@ function put(value) {
 
   let lastExpression = visorHist.innerHTML.split('<br>').at(-1)
   let answer = visorOut.value
-  console.log(value)
+  console.log('value: ' + value)
 
   if (!isNaN(value)) {
     if (lastOperandSize(lastExpression) >= 8) {
-      visorOut.value = answer.slice(0, -1)
+      visorOut.value = answer
       return
     }
 
     lastExpression += value
     answer = calc(lastExpression)
-    console.log(answer)
+    console.log('answer: ' + answer)
   } else if (value === '=') {
     value = ` = ${answer}<br>`
   } else if (lastExpression.length == 0) {
@@ -44,7 +45,6 @@ function put(value) {
     value = `${answer} ${value} `
   } else {
     value = ` ${value} `
-    answer = answer.slice(0, -1)
   }
 
   visorOut.value = answer
@@ -52,8 +52,22 @@ function put(value) {
   visorHist.scrollTop = visorHist.scrollHeight
 }
 
-function calc(expression = 0) {
-  return new Function(`return ${expression} `)()
+function calc(expression) {
+  let r
+  let nExp = expression
+
+  try {
+    r = new Function(`return ${expression}`)()
+  }
+  catch (error) {
+    //r = calc(expression.split(' ').slice(0, -1).join(' '))
+    nExp = expression.replace(/(.*)\s[\+\-\*\/]{1,2}/i, '$1')
+    console.error(error.message)
+    console.warn('Next expression to process: ' + nExp)
+    r = calc(nExp)
+  }
+
+  return r ? r : 0
 }
 
 function lastOperandSize(expression) {
@@ -73,14 +87,16 @@ const visorOut = document.getElementsByClassName('visor-out')[0]
 
 visorOut.addEventListener('keydown', (e) => {
   const key = e.key
+  console.log('key: ' + key)
 
-  console.log(key)
+  e.preventDefault()
 
   if (key === 'Backspace') erase()
   else if (key === 'Delete') clearEntry()
-  else if (key === 'Enter' || !isNaN(key)) {
-    put(key)
-  }
+  else if (key === 'Enter') put('=')
+  else if (key === 'Dead') put('**')
+  //else if (!isNaN(key) || '=+-*/'.includes(key)) put(key)
+  else if (key.match(/[0-9\=\+\-\*\/]/)) put(key)
 })
 
 

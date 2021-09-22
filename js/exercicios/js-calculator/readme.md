@@ -11,8 +11,13 @@
 - [x] Comando adicionar número
 
 - [x] Limitar numero de caracteres de entrada em 8 unidades
-  - [ ] Inserir `*10^n` quando `visor-out` ultrapassar x caracteres OU `ERR`
-  
+
+- [ ] Limitar caracteres número de caracteres de saída
+
+  1. Inserir `*10^n` quando `visor-out` ultrapassar x caracteres 
+  2. `ERR`
+  3. Truncar em duas casas decimais
+
 - [x] Conta atual no visor ou no histórico?
 
   * windows: numero atual no visor, operação completa no buffer; todas as operações no histórico
@@ -20,7 +25,7 @@
   * **ios**: operação completa no buffer, resultado parcial no visor
   * cassio: operação completa no buffer (srollable 2D), resultado no visor 
   
-- [ ] Gerenciar histórico
+- [x] Gerenciar histórico
 
   - [x] Resolução das operações
     1. A cada operando inserido, calcular a operação anterior
@@ -48,12 +53,12 @@
 
       - Teria que alinhar todo o seu conteúdo à esquerda e retornar a `scrollLeft = 0` sempre que iniciar uma nova linha
   
-- [ ] Gerenciar limpezas
+- [x] Gerenciar limpezas
 
-  - [x] `backspace` permite apagar somente a expressão atual
+  - [x] `backspace` permite apagar somente os caracteres a expressão atual, um a um
   - [x] `C` limpa todo o histórico
   - [x] `CE` limpa toda a expressão atual
-    - [ ] Apagar também o `visor-out`?
+    - [x] Apagar também o `visor-out`?
       1. se sim, ao inserir operador na linha em branco, pega o 0  (ou '') como primeiro operando
       2. se não, pega o resultado parcial da expressão apagada
       3. em ambos os casos, perde a funcionalidade de recuperar o resultado anterior; interessante seria ainda tê-lo disponível, mas acredito que precisaria armazená-lo globalmente
@@ -63,8 +68,10 @@
   - [x] x^2: x**2
   - [x] sqrt: x**1/2
   - [ ] Refinar implementações anteriores
+  - [ ] %
   - [ ] +/-
   - [ ] .
+  - [ ] ()
   
 - [x] Tornar o `visor-out` uma `input`
 
@@ -76,9 +83,13 @@
 
   - [x] Permitir inserção de valores e operações por teclado
   - [ ] Gerenciar melhor inserção e identificação dos caracteres
-    - [ ] Inserir caracteres de operação (+, =) sem incluí-los no `visor-out`
+    - [x] Inserir caracteres de operação (+, =) sem incluí-los no `visor-out`
+      * ^ não está funcionando corretamente: insere o numero junto com o resultado
     - [x] Aceitar operações, como Enter ou Backspace
-    - [ ] 
+
+- [ ] Calc
+
+  - [ ] Tratar o caso `a ** ** b * c` (que excede a recursão), de forma que `a ** ** b`, ao ser calculado, retorna para o `visor-hist` a string `a ** b`. Considerar que a função é chamada em `put` e em `erase`
 
 ### Estilização
 
@@ -95,3 +106,4 @@
 - [ ] Tirar os *event handler* dos atributos *onevent* do HTML
   1. Atribuir os eventos com `addEventListener` 
   2. Atribuindo uma função à propriedade *onevent* do elemento correspondente
+- [ ] Verificar onde vale à pena utilizar ReGeX

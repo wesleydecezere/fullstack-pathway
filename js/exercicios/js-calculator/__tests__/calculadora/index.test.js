@@ -1,5 +1,5 @@
 //import { calc } from '../../js'
-import { lastOperandSize } from '../../js/utils/last-operand-size'
+import { lastOperandSize } from '../../js/utils/last-operand-size.js'
 
 describe('Testando os cálculos', () => {
   it('Deve retornar 10 ao somar 3 e 7', () => {
@@ -25,9 +25,14 @@ describe('Calculo do tamanho do ultimo operando', () => {
 
     expect(lastOperandSize(expression)).toBe(6)
   })
-  it('Deve calcular corretamente quando expressão terminar com operador', () => {
+  it('Deve retornar 0 quando expressão estiver vazia', () => {
+    const expression = ''
+
+    expect(lastOperandSize(expression)).toBe(0)
+  })
+  it('Deve retornar 0 quando expressão terminar com operador operador', () => {
     const expression = '1 + 12 * 1234567890 + '
 
-    expect(lastOperandSize(expression)).toBe(10)
+    expect(lastOperandSize(expression)).toBe(0)
   })
 })

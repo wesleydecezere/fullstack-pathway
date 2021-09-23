@@ -1,4 +1,5 @@
-import { lastOperandSize } from './last-operand-size';
+import { lastOperandSize } from './utils/last-operand-size.js';
+//const lastOperandSize = require('./utils/last-operand-size')
 
 function erase() {
   const visorHist = document.getElementsByClassName('visor-hist')[0]

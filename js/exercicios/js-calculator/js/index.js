@@ -1,3 +1,5 @@
+import { lastOperandSize } from './last-operand-size';
+
 function erase() {
   const visorHist = document.getElementsByClassName('visor-hist')[0]
 
@@ -70,18 +72,7 @@ function calc(expression) {
   return r ? r : 0
 }
 
-function lastOperandSize(expression) {
-  const lastOperand = expression.split('').reverse().reduce((n_arr, value, idx, arr) => {
-    if (isNaN(value) || (idx === arr.length - 1)) {
-      return n_arr.concat(arr.slice(0, idx + 1).join(''))
-    } else {
-      return n_arr
-    }
 
-  }, [])[0]
-
-  return lastOperand === undefined ? 0 : lastOperand.length
-}
 
 const visorOut = document.getElementsByClassName('visor-out')[0]
 
@@ -97,6 +88,8 @@ visorOut.addEventListener('keydown', (e) => {
   else if (key === 'Dead') put('**')
   //else if (!isNaN(key) || '=+-*/'.includes(key)) put(key)
   else if (key.match(/[0-9\=\+\-\*\/]/)) put(key)
+
+  return false
 })
 
 

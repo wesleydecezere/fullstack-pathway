@@ -11,11 +11,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "core-js": "^3.18.0",
     "express": "^4.17.1",
     "jest": "^27.1.1"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.15.6",
-    "babel-jest": "^27.2.1"
+    "@testing-library/dom": "^8.6.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "babel-jest": "^27.2.1",
+    "jsdom": "^17.0.0"
   }
 }

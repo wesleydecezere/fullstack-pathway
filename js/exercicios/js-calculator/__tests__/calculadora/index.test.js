@@ -1,5 +1,5 @@
 //import { calc } from '../../js'
-import { lastOperandSize } from '../../js/utils/last-operand-size.js'
+import { lastOperandSize } from '../../js/visor/utils/last-operand-size.js'
 
 describe('Testando os cálculos', () => {
   it('Deve retornar 10 ao somar 3 e 7', () => {

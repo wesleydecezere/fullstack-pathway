@@ -62,6 +62,7 @@
       1. se sim, ao inserir operador na linha em branco, pega o 0  (ou '') como primeiro operando
       2. se não, pega o resultado parcial da expressão apagada
       3. em ambos os casos, perde a funcionalidade de recuperar o resultado anterior; interessante seria ainda tê-lo disponível, mas acredito que precisaria armazená-lo globalmente
+    - [ ] Quando na primeira linha vazia, insere um `<br>` erroneamente
   
 - [ ] Operações avançadas
   - [x] 1/x
@@ -83,11 +84,12 @@
 
   - [x] Permitir inserção de valores e operações por teclado
   - [ ] Gerenciar melhor inserção e identificação dos caracteres
-    - [x] Inserir caracteres de operação (+, =) sem incluí-los no `visor-out`
-      * ^ não está funcionando corretamente: insere o numero junto com o resultado
     - [x] Aceitar operações, como Enter ou Backspace
+    - [ ] Inserir caracteres de operação (+, =) sem incluí-los no `visor-out`
+      * ^ não está funcionando corretamente: insere o numero junto com o resultado
+  - [ ] Para funcionar no mobile, pegar o evento beforeInput e o keydown, a depender da tecla
 
-- [ ] Calc
+- [ ] Calculate
 
   - [ ] Tratar o caso `a ** ** b * c` (que excede a recursão), de forma que `a ** ** b`, ao ser calculado, retorna para o `visor-hist` a string `a ** b`. Considerar que a função é chamada em `put` e em `erase`
 

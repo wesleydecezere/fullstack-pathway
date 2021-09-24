@@ -1,9 +1,10 @@
 import { lastOperandSize } from './utils/last-operand-size.js';
-//const lastOperandSize = require('./utils/last-operand-size')
+import { calc } from './utils/calculator.js';
 
-function erase() {
-  const visorHist = document.getElementsByClassName('visor-hist')[0]
+const visorOut = document.getElementsByClassName('visor-out')[0]
+const visorHist = document.getElementsByClassName('visor-hist')[0]
 
+function erase(e) {
   const expressions = visorHist.innerHTML.split('<br>')
   let lastExpression = expressions.at(-1).slice(0, -1).trim()
   expressions[expressions.length - 1] = lastExpression
@@ -12,22 +13,17 @@ function erase() {
   visorOut.value = calc(lastExpression)
 }
 
-function clearAll() {
-  document.getElementsByClassName('visor-hist')[0].innerHTML = ''
-  document.getElementsByClassName('visor-out')[0].value = '0'
+function clearAll(e) {
+  visorHist.innerHTML = ''
+  visorOut.value = '0'
 }
 
-function clearEntry() {
-  const visorHist = document.getElementsByClassName('visor-hist')[0]
-
+function clearEntry(e) {
   visorHist.innerHTML = visorHist.innerHTML.split('<br>').slice(0, -1).join('<br>') + '<br>'
-  document.getElementsByClassName('visor-out')[0].value = ''
+  visorOut.value = ''
 }
 
 function put(value) {
-  const visorOut = document.getElementsByClassName('visor-out')[0]
-  const visorHist = document.getElementsByClassName('visor-hist')[0]
-
   let lastExpression = visorHist.innerHTML.split('<br>').at(-1)
   let answer = visorOut.value
   console.log('value: ' + value)
@@ -55,27 +51,34 @@ function put(value) {
   visorHist.scrollTop = visorHist.scrollHeight
 }
 
-function calc(expression) {
-  let r
-  let nExp = expression
+document.body.addEventListener('click', (e) => {
+  const target = e.target
 
-  try {
-    r = new Function(`return ${expression}`)()
+  switch (target.className) {
+    case 'key num':
+    case 'key op-reg':
+      put(target.innerText)
+      break;
+
+    case 'key op-exp':
+      put('**')
+      put(target.value)
+      break;
+
+    case 'key op-pct':
+      put('/')
+      put('100')
+      break;
+
+    case 'key cmd':
+      let cmd = target.value
+
+      if (cmd === 'backspace') erase()
+      if (cmd === 'clear-entry') clearEntry()
+      if (cmd === 'clear-all') clearAll()
+      break;
   }
-  catch (error) {
-    //r = calc(expression.split(' ').slice(0, -1).join(' '))
-    nExp = expression.replace(/(.*)\s[\+\-\*\/]{1,2}/i, '$1')
-    console.error(error.message)
-    console.warn('Next expression to process: ' + nExp)
-    r = calc(nExp)
-  }
-
-  return r ? r : 0
-}
-
-
-
-const visorOut = document.getElementsByClassName('visor-out')[0]
+})
 
 visorOut.addEventListener('keydown', (e) => {
   const key = e.key
@@ -92,8 +95,3 @@ visorOut.addEventListener('keydown', (e) => {
 
   return false
 })
-
-
-
-
-

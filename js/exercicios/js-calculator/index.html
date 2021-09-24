@@ -8,50 +8,50 @@
 </head>
 
 <body>
-  <main class='container'>
-    <div class='visor'>
+  <div class='container'>
+    <header class='visor'>
       <div class="visor-hist"></div>
       <input class="visor-out" type='text' autofocus='true' onBlur='this.focus()' placeholder=0></input>
-    </div>
-    <div class='keyboard'>
+    </header>
+    <main class='keyboard'>
       <div class='keyboard-line'>
-        <div class='key' onClick='put("/"); put(100)'>%</div>
-        <div class='key' onClick='clearEntry()'>CE</div>
-        <div class='key' onClick='clearAll()'>CA</div>
-        <div class='key' onClick='erase()'>bsp</div>
+        <button class='key op-pct'>%</button>
+        <button class='key cmd' value='clear-all'>CA</button>
+        <button class='key cmd' value='clear-entry'>CE</button>
+        <button class='key cmd' value='backspace'>bsp</button>
       </div>
       <div class='keyboard-line'>
-        <div class='key' onClick='put("**"); put("-1")'>1/x</div>
-        <div class='key' onClick='put("**"); put(2)'>x^2</div>
-        <div class='key' onClick='put("**"); put(0.5)'>sqrt</div>
-        <div class='key' onClick='put(this.innerText)'>/</div>
+        <button class='key op-exp' value='-1'>1/x</button>
+        <button class='key op-exp' value='2'>x^2</button>
+        <button class='key op-exp' value='0.5'>sqrt</button>
+        <button class='key op-reg'>/</button>
       </div>
       <div class='keyboard-line'>
-        <div class='key' onClick='put(this.innerText)'>7</div>
-        <div class='key' onClick='put(this.innerText)'>8</div>
-        <div class='key' onClick='put(this.innerText)'>9</div>
-        <div class='key' onClick='put(this.innerText)'>*</div>
+        <button class='key num'>7</button>
+        <button class='key num'>8</button>
+        <button class='key num'>9</button>
+        <button class='key op-reg'>*</button>
       </div>
       <div class='keyboard-line'>
-        <div class='key' onClick='put(this.innerText)'>4</div>
-        <div class='key' onClick='put(this.innerText)'>5</div>
-        <div class='key' onClick='put(this.innerText)'>6</div>
-        <div class='key' onClick='put(this.innerText)'>-</div>
+        <button class='key num'>4</button>
+        <button class='key num'>5</button>
+        <button class='key num'>6</button>
+        <button class='key op-reg'>-</button>
       </div>
       <div class='keyboard-line'>
-        <div class='key' onClick='put(this.innerText)'>1</div>
-        <div class='key' onClick='put(this.innerText)'>2</div>
-        <div class='key' onClick='put(this.innerText)'>3</div>
-        <div class='key' onClick='put(this.innerText)'>+</div>
+        <button class='key num'>1</button>
+        <button class='key num'>2</button>
+        <button class='key num'>3</button>
+        <button class='key op-reg'>+</button>
       </div>
       <div class='keyboard-line'>
-        <div class='key'>+/-</div>
-        <div class='key' onClick='put(this.innerText)'>0</div>
-        <div class='key'>.</div>
-        <div class='key' onClick='put(this.innerText)'>=</div>
+        <button class='key op-sig'>+/-</button>
+        <button class='key num'>0</button>
+        <button class='key op-dot'>.</button>
+        <button class='key op-reg'>=</button>
       </div>
-    </div>
-  </main>
+    </main>
+  </div>
   <script type="module" src='./js/index.js'></script>
 </body>
 

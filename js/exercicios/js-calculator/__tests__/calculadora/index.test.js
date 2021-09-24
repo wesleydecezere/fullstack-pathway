@@ -9,7 +9,7 @@ describe('Testando os cálculos', () => {
   })
 })
 
-describe('Calculo do tamanho do ultimo operando', () => {
+describe('Cálculo do tamanho do ultimo operando', () => {
   it('Deve retornar 10 quando último operando tiver 10 dígitos', () => {
     const expression = '1 + 12 * 1234567890'
 

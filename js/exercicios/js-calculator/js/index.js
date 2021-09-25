@@ -2,9 +2,9 @@ import Visor from './visor/visor.js'
 
 const visorOut = document.getElementsByClassName('visor-out')[0]
 const visorHist = document.getElementsByClassName('visor-hist')[0]
+const visor = new Visor({ visorOut, visorHist })
 
 const main = document.querySelector('main')
-const visor = new Visor()
 
 main.addEventListener('click', (e) => {
   const target = e.target

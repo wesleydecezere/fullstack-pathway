@@ -3,32 +3,27 @@ import { calc } from '../calculator/calculator.js';
 
 class Visor {
   constructor(visorContext) {
-    if (visorContext) {
-      this.visorHist = visorContext.visorHist
-      this.visorOut = visorContext.visorOut
-    } else {
-      this.visorOut = document.getElementsByClassName('visor-out')[0]
-      this.visorHist = document.getElementsByClassName('visor-hist')[0]
-    }
+    this.visorHist = visorContext.visorHist
+    this.visorOut = visorContext.visorOut
   }
 
   erase() {
-    const expressions = visorHist.innerHTML.split('<br>')
+    const expressions = this.visorHist.innerHTML.split('<br>')
     let lastExpression = expressions.at(-1).slice(0, -1).trim()
     expressions[expressions.length - 1] = lastExpression
 
-    visorHist.innerHTML = expressions.join('<br>')
-    visorOut.value = calc(lastExpression)
+    this.visorHist.innerHTML = expressions.join('<br>')
+    this.visorOut.value = calc(lastExpression)
   }
 
   clearAll() {
-    visorHist.innerHTML = ''
-    visorOut.value = '0'
+    this.visorHist.innerHTML = ''
+    this.visorOut.value = '0'
   }
 
   clearEntry() {
-    visorHist.innerHTML = visorHist.innerHTML.split('<br>').slice(0, -1).join('<br>') + '<br>'
-    visorOut.value = '0'
+    this.visorHist.innerHTML = this.visorHist.innerHTML.split('<br>').slice(0, -1).join('<br>') + '<br>'
+    this.visorOut.value = '0'
   }
 
   put(value) {

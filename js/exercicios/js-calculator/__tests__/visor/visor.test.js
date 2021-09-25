@@ -4,32 +4,22 @@ import 'core-js/web/dom-collections'
 import 'core-js/features/dom-collections/iterator'
 import 'core-js/features/dom-collections/for-each'
 
-import '@testing-library/jest-dom/extend-expect'
-import { JSDOM } from 'jsdom'
-import fs from 'fs'
-import path from 'path'
-
 import Visor from '../../js/visor/visor'
 
-
-const html = fs.readFileSync(path.resolve(__dirname.replace('__tests__\\visor', ''), './index.html'), 'utf8');
-let dom = new JSDOM(html, { runScripts: 'dangerously', resources: 'usable' })
-let document = dom.window.document
+// let value
+// let innerHTML
 
 let visorOut
 let visorHist
 let visor
 
 beforeEach(() => {
-  //dom = new JSDOM(html, { runScripts: 'dangerously', resources: 'usable' })
-  //document = dom.window.document
-
-  //visorOut = document.getElementsByClassName('visor-out')[0]
-  //visorHist = document.getElementsByClassName('visor-hist')[0]
+  // value = 0
+  // innerHTML = ''
+  // visor = new Visor({ visorOut: { value }, visorHist: { innerHTML } })
 
   visorOut = { value: 0 }
   visorHist = { innerHTML: '' }
-
   visor = new Visor({ visorOut, visorHist })
 })
 

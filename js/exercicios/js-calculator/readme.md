@@ -91,7 +91,13 @@
 
 - [ ] Calculate
 
-  - [ ] Tratar o caso `a ** ** b * c` (que excede a recursão), de forma que `a ** ** b`, ao ser calculado, retorna para o `visor-hist` a string `a ** b`. Considerar que a função é chamada em `put` e em `erase`
+  - [ ] Tratar o caso `a ** ** b * c` (que excede a recursão)
+    1. `a ** ** b`, ao ser calculado, retorna para o `visor-hist` a string `a ** b`. Considerar que a função é chamada em `put` e em `erase`
+    2. Retornar ERR quando não houver nenhum operador
+  - [ ] Tratar a associatividade inversa do operador `**`
+    1. Inserir os operandos desta operação em parênteses
+  - [x] Tratar o número iniciado em zero, que é interpretado como octal
+    * primeiros zeros de cada operando removidos
 
 ### Estilização
 
@@ -110,3 +116,6 @@
   2. Atribuindo uma função à propriedade *onevent* do elemento correspondente
 - [ ] Verificar onde vale à pena utilizar ReGeX
 - [ ] Analisar como tratar os eventos de `click` e `keydown` por uma mesma função
+- [ ] Visor
+  - [ ] Put
+    * OBS: Como a `calc` deve tratar expressões com operador sobrando, posso chamá-la sempre que inserir um novo caractere

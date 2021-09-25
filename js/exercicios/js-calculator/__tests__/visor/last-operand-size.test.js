@@ -1,4 +1,3 @@
-//import { calc } from '../../js'
 import { lastOperandSize } from '../../js/visor/utils/last-operand-size.js'
 
 describe('Testando os cálculos', () => {

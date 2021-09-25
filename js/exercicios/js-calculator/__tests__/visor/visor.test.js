@@ -8,7 +8,6 @@ import Visor from '../../js/visor/visor'
 
 // let value
 // let innerHTML
-
 let visorOut
 let visorHist
 let visor
@@ -32,14 +31,14 @@ describe('Inserção de caracteres numéricos', () => {
     expect(visorHist.innerHTML).toBe('0')
   })
   test('Deve acrescentar corretamente um caractere numerico', () => {
-    const number = '1'
+    const number = '123'
 
     visorOut.value = 0
     visorHist.innerHTML = '0'
 
     visor.put(number)
-    expect(visorOut.value).toBe(1)
-    expect(visorHist.innerHTML).toBe('1')
+    expect(visorOut.value).toBe(123)
+    expect(visorHist.innerHTML).toBe('0123')
   })
   test('Quando inserir mais de 8 caracteres em um mesmo número, deve ignorar os caracteres extra', () => {
     const characters = '1234567890'.split('')

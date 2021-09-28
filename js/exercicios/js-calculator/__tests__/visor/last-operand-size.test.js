@@ -1,4 +1,5 @@
 import { lastOperandSize } from '../../js/visor/utils/last-operand-size.js'
+import 'core-js/features/array/at'
 
 describe('Testando os cálculos', () => {
   it('Deve retornar 10 ao somar 3 e 7', () => {

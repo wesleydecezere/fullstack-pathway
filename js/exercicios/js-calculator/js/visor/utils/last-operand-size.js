@@ -1,5 +1,5 @@
 export function lastOperandSize(expression) {
-  const lastOperand = expression.split(/\s[\+\-\*\/]+\s?/).slice(-1)[0]
+  const lastOperand = expression.split(/\s[\+\-\*\/]+\s?/).at(-1)
 
   return lastOperand.length
 }

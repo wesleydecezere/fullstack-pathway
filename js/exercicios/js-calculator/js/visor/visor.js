@@ -1,6 +1,8 @@
 import { lastOperandSize } from './utils/last-operand-size.js';
 import { calc } from '../calculator/calculator.js';
 
+import { formatOperator } from './utils/format-operator.js';
+
 class Visor {
   constructor(visorContext) {
     this.visorHist = visorContext.visorHist
@@ -29,25 +31,15 @@ class Visor {
   put(value) {
     let lastExpression = this.visorHist.innerHTML.split('<br>').at(-1)
     let answer = this.visorOut.value
-    console.log('value: ' + value)
 
-    if (!isNaN(value)) {
-      if (lastOperandSize(lastExpression) >= 8) {
-        this.visorOut.value = answer
-        return
-      }
+    if (lastOperandSize(lastExpression) >= 8) return
 
-      lastExpression += value
-      answer = calc(lastExpression)
-      console.log('answer: ' + answer)
-    } else if (value === '=') {
-      value = ` = ${answer}<br>`
-    } else if (lastExpression.length == 0) {
-      // caso do undefined
-      value = `${answer} ${value} `
-    } else {
-      value = ` ${value} `
-    }
+    if (value.match(/^\d+$/)) answer = calc(lastExpression + value)
+    else value = formatOperator(value, lastExpression, answer)
+
+    // answer, expression = value.match() ?
+    //   calc(expression) :
+    //   formatOperator(answer, value)
 
     this.visorOut.value = answer
     this.visorHist.innerHTML += value

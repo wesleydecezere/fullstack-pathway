@@ -111,11 +111,18 @@
 
 - [x] Eliminar `getElementByClassName`
   1. `getElementByClassName('visor-hist')` como variável global, assim como `visor-line`
+  
 - [x] Tirar os *event handler* dos atributos *onevent* do HTML
   1. Atribuir os eventos com `addEventListener` 
   2. Atribuindo uma função à propriedade *onevent* do elemento correspondente
-- [ ] Verificar onde vale à pena utilizar ReGeX
+  
+- [x] Verificar onde vale à pena utilizar ReGeX
+
 - [ ] Analisar como tratar os eventos de `click` e `keydown` por uma mesma função
+
 - [ ] Visor
-  - [ ] Put
+
+  - [x] Put
     * OBS: Como a `calc` deve tratar expressões com operador sobrando, posso chamá-la sempre que inserir um novo caractere
+
+  - [ ] Funções de limpeza

@@ -1,36 +1,40 @@
 import { lastOperandSize } from './utils/last-operand-size.js';
 import { calc } from '../calculator/calculator.js';
-
 import { formatOperator } from './utils/format-operator.js';
 
 class Visor {
   constructor(visorContext) {
-    this.visorHist = visorContext.visorHist
-    this.visorOut = visorContext.visorOut
+    this.hist = visorContext.visorHist
+    this.out = visorContext.visorOut
+  }
+
+  getLastExpression() {
+    return this.hist.innerHTML.split('<br>').at(-1)
   }
 
   erase() {
-    const expressions = this.visorHist.innerHTML.split('<br>')
-    let lastExpression = expressions.at(-1).slice(0, -1).trim()
-    expressions[expressions.length - 1] = lastExpression
-
-    this.visorHist.innerHTML = expressions.join('<br>')
-    this.visorOut.value = calc(lastExpression)
+    this.hist.innerHTML = this.hist.innerHTML.replace(/(\s[\+\-\*\/]+\s$)|(\d$)/, '')
+    this.out.value = calc(this.getLastExpression())
   }
 
   clearAll() {
-    this.visorHist.innerHTML = ''
-    this.visorOut.value = '0'
+    this.hist.innerHTML = ''
+    this.out.value = 0
   }
 
   clearEntry() {
-    this.visorHist.innerHTML = this.visorHist.innerHTML.split('<br>').slice(0, -1).join('<br>') + '<br>'
-    this.visorOut.value = '0'
+    const history = this.hist.innerHTML
+
+    this.hist.innerHTML = history.includes('<br>') ?
+      history.replace(/(.*<br>).*$/, '$1')
+      : ''
+
+    this.out.value = 0
   }
 
   put(value) {
-    let lastExpression = this.visorHist.innerHTML.split('<br>').at(-1)
-    let answer = this.visorOut.value
+    let lastExpression = this.hist.innerHTML.split('<br>').at(-1)
+    let answer = this.out.value
 
     if (lastOperandSize(lastExpression) >= 8) return
 
@@ -41,9 +45,9 @@ class Visor {
     //   calc(expression) :
     //   formatOperator(answer, value)
 
-    this.visorOut.value = answer
-    this.visorHist.innerHTML += value
-    this.visorHist.scrollTop = this.visorHist.scrollHeight
+    this.out.value = answer
+    this.hist.innerHTML += value
+    this.hist.scrollTop = this.hist.scrollHeight
   }
 }
 

@@ -75,3 +75,66 @@ describe('put', () => {
     })
   })
 })
+
+describe('erase', () => {
+  test('Deve eliminar o último caractere numerico da expressão e recalcular o seu valor', () => {
+    visorHist.innerHTML = '1 + 2 * 12'
+    visorOut.value = 24
+
+    visor.erase()
+
+    expect(visorHist.innerHTML).toBe('1 + 2 * 1')
+    expect(visorOut.value).toBe(3)
+  })
+  test('Quando último(s) caractere(s) da expressão for um operador, deve eliminá-lo corretamente e recalcular o valor da expressão', () => {
+    visorHist.innerHTML = '1 + 3 ** 2'
+    visorOut.value = 10
+
+    visor.erase()
+    visor.erase()
+
+    expect(visorHist.innerHTML).toBe('1 + 3')
+    expect(visorOut.value).toBe(4)
+  })
+  test('Quando houver mais de uma expressão no histórico, deve eliminar o último caractere da expressão atual e recalcular o seu valor', () => {
+    const hist = '1 + 2 * 12 = 25<br>2 + 4 * 24 = 98<br>4 + 8 * 48'
+
+    visorHist.innerHTML = hist
+    visorOut.value = 388
+    visor.erase()
+
+    expect(visorHist.innerHTML).toBe(hist.slice(0, -1))
+    expect(visorOut.value).toBe(36)
+  })
+  test('Quando houver mais de uma expressão no histórico e nenhum caractere na expressão atual, o comando de erase não deve ter efeito sobre nenhuma outra expressão, mas deve recalcular o valor da expressão atual', () => {
+    const hist = '1 + 2 * 12 = 25<br>2 + 4 * 24 = 98<br>'
+
+    visorHist.innerHTML = hist
+    visorOut.value = 394
+    visor.erase()
+
+    expect(visorHist.innerHTML).toBe(hist)
+    expect(visorOut.value).toBe(0)
+  })
+})
+
+describe('clear entry', () => {
+  test('Quando houver somente uma expressão, deve apagá-la', () => {
+    visorHist.innerHTML = '1 + 2 * 12'
+    visorOut.value = 24
+
+    visor.clearEntry()
+
+    expect(visorHist.innerHTML).toBe('')
+    expect(visorOut.value).toBe(0)
+  })
+  test('Quando houver mais de uma expressão no histórico, deve apagar somente expressão atual', () => {
+    visorHist.innerHTML = '1 + 2 * 12 = 25<br>2 + 4 * 24 = 98<br>4 + 8 * 48'
+    visorOut.value = 388
+
+    visor.clearEntry()
+
+    expect(visorHist.innerHTML).toBe('1 + 2 * 12 = 25<br>2 + 4 * 24 = 98<br>')
+    expect(visorOut.value).toBe(0)
+  })
+})

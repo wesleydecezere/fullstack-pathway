@@ -54,7 +54,9 @@
 
 ## 3 Mockando uma API REST em meus testes com **msw**
 
-Segregar responsabilidades
+#### Segregar responsabilidades
+
+* Um componente deve ter, idealmente, somente uma responsabilidade
 
 #### Mock Service Worker (MSW)
 
@@ -105,6 +107,6 @@ Segregar responsabilidades
 
 * O método `screen.findByText` faz uma busca assíncrona de algum elemento na tela renderizada, diferentemente do `getByText`
 
+#### `useState`
 
-
-### UseState
+* Utilizado para armazenar os dados recebidos da API

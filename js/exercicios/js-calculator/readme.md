@@ -125,4 +125,4 @@
   - [x] Put
     * OBS: Como a `calc` deve tratar expressões com operador sobrando, posso chamá-la sempre que inserir um novo caractere
 
-  - [ ] Funções de limpeza
+  - [x] Funções de limpeza

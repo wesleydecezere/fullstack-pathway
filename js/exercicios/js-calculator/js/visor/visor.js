@@ -1,4 +1,3 @@
-import { lastOperandSize } from './utils/last-operand-size.js';
 import { calc } from '../calculator/calculator.js';
 import { formatOperator } from './utils/format-operator.js';
 
@@ -11,6 +10,7 @@ class Visor {
   get history() { return this.historyEl.innerHTML }
   get output() { return this.outputEl.value }
   get lastExpression() { return this.history.split('<br>').at(-1) }
+  get lastOperand() { return this.lastExpression.split(/\s[\+\-\*\/]+\s?/).at(-1) }
 
   set history(str) { this.historyEl.innerHTML = str }
   set output(n) { this.outputEl.value = n }
@@ -37,7 +37,7 @@ class Visor {
     let lastExpression = this.lastExpression
     let answer = this.output
 
-    if (lastOperandSize(lastExpression) >= 8) return
+    if (this.lastOperand.length >= 8) return
 
     if (value.match(/^\d+$/)) answer = calc(lastExpression + value)
     else value = formatOperator(value, lastExpression, answer)

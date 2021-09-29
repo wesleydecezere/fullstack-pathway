@@ -4,37 +4,38 @@ import { formatOperator } from './utils/format-operator.js';
 
 class Visor {
   constructor(visorContext) {
-    this.hist = visorContext.visorHist
-    this.out = visorContext.visorOut
+    this.historyEl = visorContext.visorHist
+    this.outputEl = visorContext.visorOut
   }
 
-  getLastExpression() {
-    return this.hist.innerHTML.split('<br>').at(-1)
-  }
+  get history() { return this.historyEl.innerHTML }
+  get output() { return this.outputEl.value }
+  get lastExpression() { return this.history.split('<br>').at(-1) }
+
+  set history(str) { this.historyEl.innerHTML = str }
+  set output(n) { this.outputEl.value = n }
 
   erase() {
-    this.hist.innerHTML = this.hist.innerHTML.replace(/(\s[\+\-\*\/]+\s$)|(\d$)/, '')
-    this.out.value = calc(this.getLastExpression())
+    this.history = this.history.replace(/(\s[\+\-\*\/]+\s$)|(\d$)/, '')
+    this.output = calc(this.lastExpression)
   }
 
   clearAll() {
-    this.hist.innerHTML = ''
-    this.out.value = 0
+    this.history = ''
+    this.output = 0
   }
 
   clearEntry() {
-    const history = this.hist.innerHTML
-
-    this.hist.innerHTML = history.includes('<br>') ?
-      history.replace(/(.*<br>).*$/, '$1')
+    this.history = this.history.includes('<br>') ?
+      this.history.replace(/(.*<br>).*$/, '$1')
       : ''
 
-    this.out.value = 0
+    this.output = 0
   }
 
   put(value) {
-    let lastExpression = this.hist.innerHTML.split('<br>').at(-1)
-    let answer = this.out.value
+    let lastExpression = this.lastExpression
+    let answer = this.output
 
     if (lastOperandSize(lastExpression) >= 8) return
 
@@ -45,9 +46,9 @@ class Visor {
     //   calc(expression) :
     //   formatOperator(answer, value)
 
-    this.out.value = answer
-    this.hist.innerHTML += value
-    this.hist.scrollTop = this.hist.scrollHeight
+    this.output = answer
+    this.history += value
+    this.historyEl.scrollTop = this.historyEl.scrollHeight
   }
 }
 

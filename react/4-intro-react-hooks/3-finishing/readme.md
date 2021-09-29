@@ -31,10 +31,3 @@
 ```bash
 npm test  --coverage --watchAll=false
 ```
-
-
-
-
-
-## 3 Dúvidas
-

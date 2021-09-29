@@ -1,4 +1,4 @@
-<p style='font-size: 36px; font-weight : bold; font-style: italic'>Introdução aos React Hooks</p>
+# Introdução aos React Hooks
 
 **Instrutor**: [Celso Henrique](https://github.com/celso-henrique) | **Posição**: Engineering Lead at Creditas
 
@@ -8,7 +8,7 @@
 
 ## Orientações
 
-Na pasta [`naruto-app`](./naruto-app) está a a aplicação desenvolvida durante o curso. Para executá-la em modo desenvolvimento, clone este repositório, acesse a pasta e execute `yarn start`. Para outros detalhes, consulte o [README](./naruto-app/readme.md) gerado automaticamente pelo `create-react-app`.
+Na pasta [`naruto-app`](./naruto-app) está a a aplicação desenvolvida durante o curso. Para executá-la em modo desenvolvimento, clone este repositório, acesse a pasta e execute `yarn start`. Para outros detalhes, consulte o [README](./naruto-app/README.md) gerado automaticamente pelo `create-react-app`.
 
 As requisições da aplicação são feitas ao servidor implmentado [neste](https://github.com/celso-henrique/naruto-quotes-server/) repositório. Para rodá-lo localmente, clone o repositório e siga as instruções de seu [REAMDE](https://github.com/celso-henrique/naruto-quotes-server/blob/main/readme.md).
 

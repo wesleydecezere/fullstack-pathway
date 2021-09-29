@@ -1,12 +1,10 @@
-<p style='font-size: 36px; font-weight : bold; font-style: italic'>Introdução aos React Hooks</p>
+# Introdução aos React Hooks
 
 **Instrutor**: [Celso Henrique](https://github.com/celso-henrique) | **Posição**: Engineering Lead at Creditas
 
----------
+## 2 Ajustes estéticos
 
-# Ajustes estéticos
-
-## 1 Explorando o *React Styled Components* um pouco mais
+### 2.1 Explorando o *React Styled Components* um pouco mais
 
 #### Unidades de medida CSS
 
@@ -30,7 +28,7 @@
 
 
 
-## 2 Abstraindo melhor meus componentes
+### 2.2 Abstraindo melhor meus componentes
 
 #### Função espiã
 
@@ -52,7 +50,7 @@
 
   
 
-## 3 Mockando uma API REST em meus testes com **msw**
+### 2.3 Mockando uma API REST em meus testes com **msw**
 
 #### Segregar responsabilidades
 
@@ -103,7 +101,9 @@
 
 
 
-## 4 Evoluindo meu projeto através do controle de estado
+### 2.4 Evoluindo meu projeto através do controle de estado
+
+#### Testes assíncronos
 
 * O método `screen.findByText` faz uma busca assíncrona de algum elemento na tela renderizada, diferentemente do `getByText`
 

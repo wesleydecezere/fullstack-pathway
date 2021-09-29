@@ -1,14 +1,12 @@
-<p style='font-size: 36px; font-weight : bold; font-style: italic;'>Introdução aos React Hooks</p>
+# Introdução aos React Hooks
 
 **Instrutor**: [Celso Henrique](https://github.com/celso-henrique) | **Posição**: Engineering Lead at Creditas
 
-------------
+## 1 Introdução
 
-# Introdução
+### 1.1 Apresentação do projeto
 
-## 1 Apresentação do projeto
-
-## 2 Criando meu projeto
+### 1.2 Criando meu projeto
 
 Exportando componentes
 
@@ -25,19 +23,19 @@ Exportando componentes
   │	└─ index.js
   └─ index.js
   ```
+  
+  
 
 
-
-
-## 3 Criando minha primeira página e seus respectivos testes
+### 1.3 Criando minha primeira página e seus respectivos testes
 
 Testes unitários
 
 * utiliza os métodos `render` e `screen` da biblioteca `@testing-library/react` para renderizar um componentes e para acessar elementos já renderizados com base em alguma propriedade, respectivamente
 * utiliza método `toBeInTheDocument`,  da biblioteca `@testing-library/jest-dom/extend-expect` para informar o cenário esperado pelo teste.
 
-## 4 Conhecendo o *React Styled Components* e criando um componente
+### 1.4 Conhecendo o *React Styled Components* e criando um componente
 
-## 5 Evoluindo e testando meu componente
+### 1.5 Evoluindo e testando meu componente
 
 Renderizando um componentes que recebe algumas props a as exibe como texto, é possível utilizar `screen.getByText(text)` para localizá-las nos testes.

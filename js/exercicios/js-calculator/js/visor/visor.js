@@ -1,4 +1,4 @@
-import { calc } from '../calculator/calculator.js';
+import { solve } from '../calculator/calculator.js';
 import { formatOperator } from './utils/format-operator.js';
 
 class Visor {
@@ -17,7 +17,7 @@ class Visor {
 
   erase() {
     this.history = this.history.replace(/(\s[\+\-\*\/]+\s$)|(\d$)/, '')
-    this.output = calc(this.lastExpression)
+    this.output = solve(this.lastExpression)
   }
 
   clearAll() {
@@ -39,11 +39,11 @@ class Visor {
 
     if (this.lastOperand.length >= 8) return
 
-    if (value.match(/^\d+$/)) answer = calc(lastExpression + value)
+    if (value.match(/^\d+$/)) answer = solve(lastExpression + value)
     else value = formatOperator(value, lastExpression, answer)
 
     // answer, expression = value.match() ?
-    //   calc(expression) :
+    //   resolve(expression) :
     //   formatOperator(answer, value)
 
     this.output = answer

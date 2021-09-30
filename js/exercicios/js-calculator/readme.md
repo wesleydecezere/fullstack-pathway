@@ -118,11 +118,11 @@
   
 - [x] Verificar onde vale à pena utilizar ReGeX
 
-- [ ] Analisar como tratar os eventos de `click` e `keydown` por uma mesma função
-
-- [ ] Visor
+- [x] Visor
 
   - [x] Put
     * OBS: Como a `calc` deve tratar expressões com operador sobrando, posso chamá-la sempre que inserir um novo caractere
 
   - [x] Funções de limpeza
+
+- [ ] Analisar como tratar os eventos de `click` e `keydown` por uma mesma função

@@ -92,7 +92,7 @@
 - [ ] Calculate
 
   - [ ] Tratar o caso `a ** ** b * c` (que excede a recursão)
-    1. `a ** ** b`, ao ser calculado, retorna para o `visor-hist` a string `a ** b`. Considerar que a função é chamada em `put` e em `erase`
+    1. Retornar ao `visor-hist` a expressão efetivamente calculada, de forma que não  --> isso inviabilizaria a chamada da função ao apagar um numero/operador
     2. Retornar ERR quando não houver nenhum operador
   - [ ] Tratar a associatividade inversa do operador `**`
     1. Inserir os operandos desta operação em parênteses

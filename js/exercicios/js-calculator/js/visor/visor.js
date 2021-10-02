@@ -42,10 +42,6 @@ class Visor {
     if (value.match(/^\d+$/)) answer = solve(lastExpression + value)
     else value = formatOperator(value, lastExpression, answer)
 
-    // answer, expression = value.match() ?
-    //   resolve(expression) :
-    //   formatOperator(answer, value)
-
     this.output = answer
     this.history += value
     this.historyEl.scrollTop = this.historyEl.scrollHeight

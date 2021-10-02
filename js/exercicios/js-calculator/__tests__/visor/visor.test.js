@@ -112,7 +112,7 @@ describe('erase', () => {
     expect(visor.history).toBe(hist.slice(0, -1))
     expect(visor.output).toBe(36)
   })
-  test('Quando houver mais de uma expressão no histórico e nenhum caractere na expressão atual, o comando de erase não deve ter efeito sobre nenhuma outra expressão, mas deve recalcular o valor da expressão atual', () => {
+  test.only('Quando houver mais de uma expressão no histórico e nenhum caractere na expressão atual, o comando de erase não deve ter efeito sobre nenhuma outra expressão, mas deve recalcular o valor da expressão atual', () => {
     const hist = '1 + 2 * 12 = 25<br>2 + 4 * 24 = 98<br>'
 
     visor.history = hist

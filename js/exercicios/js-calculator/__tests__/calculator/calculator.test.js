@@ -24,6 +24,11 @@ describe('Operações anormais', () => {
 
     expect(solve(expression)).toBe(133)
   })
+  test.only('Deve ignorar operadores no final da expressão', () => {
+    const expression = '1 + 2 + / ** '
+
+    expect(solve(expression)).toBe(3)
+  })
 })
 
 

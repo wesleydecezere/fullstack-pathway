@@ -45,8 +45,7 @@ visorOut.addEventListener('keydown', (e) => {
   else if (key === 'Delete') visor.clearEntry()
   else if (key === 'Enter') visor.put('=')
   else if (key === 'Dead') visor.put('**')
-  //else if (!isNaN(key) || '=+-*/'.includes(key)) put(key)
-  else if (key.match(/[0-9\=\+\-\*\/]/)) visor.put(key)
+  else if (key.match(/[0-9=+-/*]/)) visor.put(key)
 
   return false
 })

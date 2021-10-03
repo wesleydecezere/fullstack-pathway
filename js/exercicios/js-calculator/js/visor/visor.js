@@ -37,9 +37,10 @@ class Visor {
     let lastExpression = this.lastExpression
     let answer = this.output
 
-    if (this.lastOperand.length >= 8) return
-
-    if (value.match(/^\d+$/)) answer = solve(lastExpression + value)
+    if (value.match(/^\d+$/)) {
+      if (this.lastOperand.length >= 8) return
+      answer = solve(lastExpression + value)
+    }
     else value = formatOperator(value, lastExpression, answer)
 
     this.output = answer

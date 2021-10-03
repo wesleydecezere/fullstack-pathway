@@ -68,8 +68,8 @@
   - [x] 1/x
   - [x] x^2: x**2
   - [x] sqrt: x**1/2
-  - [ ] Refinar implementações anteriores
-  - [ ] %
+  - [x] Refinar implementações anteriores
+  - [x] %
   - [ ] +/-
   - [ ] .
   - [ ] ()
@@ -83,21 +83,21 @@
 - [ ] Uso do teclado
 
   - [x] Permitir inserção de valores e operações por teclado
-  - [ ] Gerenciar melhor inserção e identificação dos caracteres
+  - [x] Gerenciar melhor inserção e identificação dos caracteres
     - [x] Aceitar operações, como Enter ou Backspace
-    - [ ] Inserir caracteres de operação (+, =) sem incluí-los no `visor-out`
+    - [x] Inserir caracteres de operação (+, =) sem incluí-los no `visor-out`
       * ^ não está funcionando corretamente: insere o numero junto com o resultado
   - [ ] Para funcionar no mobile, pegar o evento beforeInput e o keydown, a depender da tecla
 
 - [ ] Calculate
 
-  - [ ] Tratar o caso `a ** ** b * c` (que excede a recursão)
+  - [x] Tratar o caso `a ** ** b * c` (que excede a recursão)
     1. Retornar ao `visor-hist` a expressão efetivamente calculada, de forma que não  --> isso inviabilizaria a chamada da função ao apagar um numero/operador
     2. Retornar ERR quando não houver nenhum operador
-  - [ ] Tratar a associatividade inversa do operador `**`
-    1. Inserir os operandos desta operação em parênteses
   - [x] Tratar o número iniciado em zero, que é interpretado como octal
     * primeiros zeros de cada operando removidos
+  - [ ] Tratar a associatividade inversa do operador `**`
+    1. Inserir os operandos desta operação em parênteses
 
 ### Estilização
 

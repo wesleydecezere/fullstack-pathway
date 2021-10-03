@@ -14,17 +14,17 @@ describe('Operações normais', () => {
 })
 
 describe('Operações anormais', () => {
-  test('Deve utilizar o último operador inserido, quando houver mais de um operador entre dois operandos', () => {
-    const expression = '1 + 2 * / - / 4 - 2 / * 2'
-
-    expect(solve(expression)).toBe(-2.5)
-  })
   test('Deve interpretar um número iniciado por zero como decimal, e não octal', () => {
     const expression = '0011 + 0111 + 0011'
 
     expect(solve(expression)).toBe(133)
   })
-  test.only('Deve ignorar operadores no final da expressão', () => {
+  test('Deve utilizar o último operador inserido, quando houver mais de um operador entre dois operandos', () => {
+    const expression = '1 + 2 * / - / 4 - 2 / * 2'
+
+    expect(solve(expression)).toBe(-2.5)
+  })
+  test('Deve ignorar operadores no final da expressão', () => {
     const expression = '1 + 2 + / ** '
 
     expect(solve(expression)).toBe(3)

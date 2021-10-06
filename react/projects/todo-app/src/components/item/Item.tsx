@@ -7,6 +7,7 @@ const ItemContainer = styled.div`
   display: flex;
   align-items: center;
   padding: 0 1rem;
+  margin-bottom: 0.5em;
 `;
 const ItemCheckbox = styled.input`
   height: 1.5rem;

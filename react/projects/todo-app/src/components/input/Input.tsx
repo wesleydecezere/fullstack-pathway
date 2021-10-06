@@ -35,9 +35,13 @@ const InputField = styled.input`
   }
 `;
 
-export const Input = () => (
+type Props = {
+  onSubmit?: (value: any) => void;
+}
+
+export const Input = ({ onSubmit }: Props): JSX.Element => (
   <InputContainer>
-    <InputButton />
-    <InputField type='text' placeholder="Adicione uma tarefa" />
+    <InputButton onClick={onSubmit} />
+    <InputField type='text' placeholder="Adicione uma tarefa" onKeyDown={onSubmit} />
   </InputContainer>
 );

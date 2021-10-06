@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { Input, Item } from './components';
 
@@ -16,13 +16,30 @@ const HorizontalLine = styled.div`
   background-color: gray;
 `;
 
+type Task = {
+  description: string;
+  checked: boolean;
+}
+
+
 function App() {
+  const [tasks, setTasks] = useState<Task[]>([])
+
+  const handleSubmit = (e: Event): void => {
+    if (e.type === 'click' || (e as KeyboardEvent).key === 'Enter') {
+      setTasks(tasks.concat([{
+        description: 'Item 1',
+        checked: false,
+      }]))
+    }
+  }
+
   return (
     <Container className="App">
       <Title>Lista de Tarefas</Title>
       <HorizontalLine />
-      <Input />
-      <Item>Item 1</Item>
+      <Input onSubmit={handleSubmit} />
+      {tasks.map(task => <Item>{task.description}</Item>)}
     </Container>
   );
 }

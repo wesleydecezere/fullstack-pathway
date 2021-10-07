@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Input, Item } from './components';
 
@@ -25,13 +25,13 @@ type Task = {
 function App() {
   const [tasks, setTasks] = useState<Task[]>([])
 
-  const handleSubmit = (e: Event): void => {
-    if (e.type === 'click' || (e as KeyboardEvent).key === 'Enter') {
-      setTasks(tasks.concat([{
-        description: 'Item 1',
-        checked: false,
-      }]))
-    }
+  const handleSubmit = (value: string): void => {
+    // if (e.type === 'click' || (e as KeyboardEvent).key === 'Enter') {
+    value && setTasks(tasks.concat([{
+      description: value,
+      checked: false,
+    }]))
+    // }
   }
 
   return (
@@ -39,7 +39,7 @@ function App() {
       <Title>Lista de Tarefas</Title>
       <HorizontalLine />
       <Input onSubmit={handleSubmit} />
-      {tasks.map(task => <Item>{task.description}</Item>)}
+      {tasks.map((task, idx) => <Item key={idx}>{task.description}</Item>)}
     </Container>
   );
 }

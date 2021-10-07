@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 
 const InputContainer = styled.div`
@@ -36,12 +37,21 @@ const InputField = styled.input`
 `;
 
 type Props = {
-  onSubmit?: (value: any) => void;
+  onSubmit: (value: string) => void;
 }
 
-export const Input = ({ onSubmit }: Props): JSX.Element => (
-  <InputContainer>
-    <InputButton onClick={onSubmit} />
-    <InputField type='text' placeholder="Adicione uma tarefa" onKeyDown={onSubmit} />
-  </InputContainer>
-);
+export const Input = ({ onSubmit }: Props): JSX.Element => {
+  const [value, setValue] = useState('');
+
+  return (
+    <InputContainer>
+      <InputButton onClick={() => onSubmit(value)} />
+      <InputField
+        type='text'
+        placeholder="Adicione uma tarefa"
+        onInput={(e) => setValue((e.target as HTMLInputElement).value)}
+        onKeyDown={(e) => e.key === 'Enter' && onSubmit(value)}
+      />
+    </InputContainer>
+  )
+};

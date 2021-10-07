@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import { Item } from './Item';
 
-test('renders an checkbox and it\'s label', () => {
+test('renders an checkbox and it\'s label, passed by children prop', () => {
   const itemContent = 'Item 1';
 
   render(<Item>{itemContent}</Item>);

@@ -1,0 +1,1 @@
+INSERT INTO alien_model VALUES (101, 'Wesley');

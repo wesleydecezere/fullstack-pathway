@@ -8,6 +8,7 @@ public class AlienModel {
 	@Id
 	private int aid;
 	private String aname;
+	private int age;
 
 	public int getAid() {
 		return aid;
@@ -27,6 +28,6 @@ public class AlienModel {
 
 	@Override
 	public String toString() {
-		return "Alien [aid=" + aid + ", [aname=" + aname + "]";
+		return "Alien [aid=" + aid + ", aname=" + aname + ", age=" + age + "]\n";
 	}
 }

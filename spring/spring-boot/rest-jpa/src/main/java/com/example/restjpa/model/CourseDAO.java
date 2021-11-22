@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CourseDAO extends JpaRepository<CourseModel, String> {
 	Optional<CourseModel> findById(int id);
+
+	void deleteById(int id);
 }

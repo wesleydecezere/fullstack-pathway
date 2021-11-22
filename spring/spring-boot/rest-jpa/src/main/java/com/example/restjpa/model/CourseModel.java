@@ -11,7 +11,6 @@ import javax.persistence.Table;
 @Table(name="COURSE")
 public class CourseModel {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private int id;
 	private String name;
 	private int workload;

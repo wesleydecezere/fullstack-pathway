@@ -1,12 +1,15 @@
 package com.example.restjpaliquibase.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity(name = "customers")
 public class Customer extends ModelEntity{
@@ -15,8 +18,8 @@ public class Customer extends ModelEntity{
 	private String address;
 	private Date dateOfBirth;
 	private int numberOfPurchases;
-	@Column(columnDefinition="Decimal(10,2)")
-	private double amountSpent;
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "purchaser")
+	private List<Purchase> purchases;
 
 	public String getName() {
 		return name;
@@ -58,11 +61,11 @@ public class Customer extends ModelEntity{
 		this.numberOfPurchases = numberOfPurchases;
 	}
 
-	public double getAmountSpent() {
-		return amountSpent;
+	public List<Purchase> getPurchases() {
+		return purchases;
 	}
 
-	public void setAmountSpent(double amountSpent) {
-		this.amountSpent = amountSpent;
+	public void setPurchases(List<Purchase> purchases) {
+		this.purchases = purchases;
 	}
 }

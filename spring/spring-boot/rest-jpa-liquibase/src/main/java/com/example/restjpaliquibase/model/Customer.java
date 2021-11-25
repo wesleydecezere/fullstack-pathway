@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -15,7 +16,8 @@ import javax.persistence.OneToMany;
 public class Customer extends ModelEntity{
 	private String name;
 	private String surname;
-	private String address;
+	@Embedded
+	private Address address;
 	private Date dateOfBirth;
 	private int numberOfPurchases;
 	@OneToMany(fetch = FetchType.EAGER, mappedBy = "purchaser")
@@ -37,11 +39,11 @@ public class Customer extends ModelEntity{
 		this.surname = surname;
 	}
 
-	public String getAddress() {
+	public Address getAddress() {
 		return address;
 	}
 
-	public void setAddress(String address) {
+	public void setAddress(Address address) {
 		this.address = address;
 	}
 

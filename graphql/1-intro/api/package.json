@@ -12,5 +12,9 @@
     "@babel/node": "^7.16.0",
     "@babel/preset-env": "^7.16.4",
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "apollo-server": "^3.5.0",
+    "graphql": "^16.0.1"
   }
 }

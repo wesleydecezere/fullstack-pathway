@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "npx nodemon --exec babel-node src/index.js"
+    "dev": "npx nodemon --exec babel-node src/index.js -e js,gql"
   },
   "name": "api",
   "version": "1.0.0",

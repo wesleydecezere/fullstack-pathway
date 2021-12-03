@@ -1,5 +1,9 @@
 {
   "dependencies": {
     "graphql": "^16.0.1"
+  },
+  "devDependencies": {
+    "-": "^0.0.1",
+    "nodemon": "^2.0.15"
   }
 }

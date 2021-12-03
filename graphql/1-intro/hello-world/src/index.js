@@ -1,7 +1,5 @@
 const {ApolloServer, gql} = require('apollo-server')
 
-// definir atributo obrigatório -> atrr: type!
-
 const typeDefs = gql`
     type User {
         _id: ID!

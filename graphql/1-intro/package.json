@@ -1,5 +1,7 @@
 {
-  "root": "./src/",
+  "scripts": {
+    "dev": "npx nodemon src/index.js"
+  },
   "name": "1-intro",
   "version": "1.0.0",
   "main": "index.js",

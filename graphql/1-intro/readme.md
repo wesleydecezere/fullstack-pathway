@@ -11,3 +11,9 @@
 ## Anotações
 
 - Por padrão, todo tipo é nullable. Para mudar, basta acrescentar ! após o tipo
+
+## Extra references
+
+1. MongoDB + Docker: https://balta.io/blog/mongodb-docker
+2. GraphQL merge schemas: https://www.graphql-tools.com/docs/migration/migration-from-merge-graphql-schemas
+3. https://thecodebarbarian.com/how-find-works-in-mongoose.html

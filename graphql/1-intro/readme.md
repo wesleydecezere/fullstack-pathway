@@ -11,9 +11,11 @@
 ## Anotações
 
 - Por padrão, todo tipo é nullable. Para mudar, basta acrescentar ! após o tipo
+- Subscrition não funcionou, pois o Apollo Server 3 mudou a forma de implementá-las. Se necessário fazer uso, basta consultar a referência 4
 
 ## Extra references
 
 1. MongoDB + Docker: https://balta.io/blog/mongodb-docker
 2. GraphQL merge schemas: https://www.graphql-tools.com/docs/migration/migration-from-merge-graphql-schemas
 3. https://thecodebarbarian.com/how-find-works-in-mongoose.html
+4. https://www.apollographql.com/docs/apollo-server/migration/

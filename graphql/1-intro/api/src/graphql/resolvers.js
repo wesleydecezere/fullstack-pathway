@@ -1,4 +1,3 @@
-// import { fileLoader, mergeResolvers } from 'merge-graphql-schemas'
 import { mergeResolvers } from '@graphql-tools/merge'
 import { loadFilesSync } from '@graphql-tools/load-files'
 import path from 'path'

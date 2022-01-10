@@ -3,10 +3,12 @@ package br.ufsc.bridge.springbootgraphql.resolver;
 import java.util.UUID;
 
 import lombok.extern.slf4j.Slf4j;
+import lombok.var;
 
 import org.springframework.stereotype.Component;
 
 import br.ufsc.bridge.springbootgraphql.domain.bank.BankAccount;
+import br.ufsc.bridge.springbootgraphql.domain.bank.Client;
 import br.ufsc.bridge.springbootgraphql.domain.bank.Currency;
 
 import graphql.kickstart.tools.GraphQLQueryResolver;
@@ -16,12 +18,18 @@ import graphql.kickstart.tools.GraphQLQueryResolver;
 public class BankAccountResolver implements GraphQLQueryResolver {
 
 	public BankAccount bankAccount(UUID id) {
-		System.out.print(String.format("Retrieving bank account id: %s", id));
+		log.info("Retrieving bank account id: {}", id);
+
+		var clientA = Client.builder()
+				.id(UUID.randomUUID())
+				.firstName("Wesley")
+				.lastName("Decezere")
+				.build();
 
 		return BankAccount.builder()
 				.id(id)
 				.currency(Currency.BRL)
-				.name("Wesley Decezere")
+				.client(clientA)
 				.build();
 	}
 }

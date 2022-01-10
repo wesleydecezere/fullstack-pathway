@@ -10,7 +10,7 @@ import lombok.Value;
 public class BankAccount {
 
 	UUID id;
-	String name;
+	Client client;
 	Currency currency;
 
 }

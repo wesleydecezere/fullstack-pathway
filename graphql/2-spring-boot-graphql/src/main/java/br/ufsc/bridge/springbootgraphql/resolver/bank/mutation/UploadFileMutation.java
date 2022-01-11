@@ -18,7 +18,10 @@ public class UploadFileMutation implements GraphQLMutationResolver {
 		DefaultGraphQLServletContext context = environment.getContext();
 
 		context.getFileParts().forEach(
-				part -> log.info("uploading: {}, size: {}", part.getSubmittedFileName(), part.getSize())
+				part -> log.info("uploading: {}, size: {}",
+							part.getSubmittedFileName(),
+							part.getSize()
+				)
 		);
 
 		return UUID.randomUUID();

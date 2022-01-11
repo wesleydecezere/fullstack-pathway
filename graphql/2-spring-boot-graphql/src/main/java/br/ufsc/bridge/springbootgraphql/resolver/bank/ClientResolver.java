@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import br.ufsc.bridge.springbootgraphql.domain.bank.BankAccount;
 import br.ufsc.bridge.springbootgraphql.domain.bank.Client;
 
+import graphql.GraphQLException;
 import graphql.kickstart.tools.GraphQLResolver;
 
 @Slf4j
@@ -18,11 +19,13 @@ public class ClientResolver implements GraphQLResolver<BankAccount> {
 	public Client client(BankAccount bankAccount) {
 		log.info("Requesting client data for bank account id {}", bankAccount.getId());
 
-		return Client.builder()
-				.id(UUID.randomUUID())
-				.firstName("Wesley")
-				.lastName("Decezere")
-				.build();
+		throw new GraphQLException("Client unavailable");
+
+//		return Client.builder()
+//				.id(UUID.randomUUID())
+//				.firstName("Wesley")
+//				.lastName("Decezere")
+//				.build();
 	}
 
 }

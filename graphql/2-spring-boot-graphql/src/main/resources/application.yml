@@ -7,7 +7,9 @@ server:
     enabled: true
     
 graphql:
-  # servlet.maxQueryDepth: 6
+  servlet:
+    maxQueryDepth: 6
+    exeption-handlers-enabled: true
   playground:
     headers:
       Authorization: Bearer TOKEN

@@ -6,5 +6,6 @@ import lombok.Data;
 public class CreateBankAccountInput {
 
 	String firstName;
+	int age;
 
 }

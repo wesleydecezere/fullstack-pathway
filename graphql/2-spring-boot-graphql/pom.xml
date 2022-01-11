@@ -17,6 +17,7 @@
 		<java.version>1.8</java.version>
 		<pmd.version>3.11.0</pmd.version>
 		<graphql.version>7.1.0</graphql.version>
+		<graphql.extended.scalars.version>1.0.1</graphql.extended.scalars.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -45,6 +46,17 @@
 			<artifactId>voyager-spring-boot-starter</artifactId>
 			<version>${graphql.version}</version>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.graphql-java</groupId>
+			<artifactId>graphql-java-extended-scalars</artifactId>
+			<version>${graphql.extended.scalars.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.graphql-java</groupId>
+					<artifactId>graphql-java</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>

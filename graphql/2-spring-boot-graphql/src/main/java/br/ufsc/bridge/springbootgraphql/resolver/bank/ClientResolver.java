@@ -19,7 +19,8 @@ public class ClientResolver implements GraphQLResolver<BankAccount> {
 	public Client client(BankAccount bankAccount) {
 		log.info("Requesting client data for bank account id {}", bankAccount.getId());
 
-		throw new GraphQLException("Client unavailable");
+//		throw new GraphQLException("Client unavailable");
+		throw new RuntimeException("Spring exception");
 
 //		return Client.builder()
 //				.id(UUID.randomUUID())

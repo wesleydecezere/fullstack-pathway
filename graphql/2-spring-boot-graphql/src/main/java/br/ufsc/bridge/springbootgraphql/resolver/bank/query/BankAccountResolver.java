@@ -1,4 +1,4 @@
-package br.ufsc.bridge.springbootgraphql.resolver;
+package br.ufsc.bridge.springbootgraphql.resolver.bank.query;
 
 import java.util.UUID;
 
@@ -20,16 +20,10 @@ public class BankAccountResolver implements GraphQLQueryResolver {
 	public BankAccount bankAccount(UUID id) {
 		log.info("Retrieving bank account id: {}", id);
 
-		var clientA = Client.builder()
-				.id(UUID.randomUUID())
-				.firstName("Wesley")
-				.lastName("Decezere")
-				.build();
-
 		return BankAccount.builder()
 				.id(id)
 				.currency(Currency.BRL)
-				.client(clientA)
 				.build();
 	}
+
 }

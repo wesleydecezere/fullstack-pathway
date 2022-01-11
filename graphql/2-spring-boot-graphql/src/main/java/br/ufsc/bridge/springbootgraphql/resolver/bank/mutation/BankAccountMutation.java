@@ -1,4 +1,4 @@
-package br.ufsc.bridge.springbootgraphql.resolver.bank.mutations;
+package br.ufsc.bridge.springbootgraphql.resolver.bank.mutation;
 
 import java.util.UUID;
 

@@ -1,5 +1,7 @@
 package br.ufsc.bridge.springbootgraphql.domain.bank;
 
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 import lombok.Builder;
@@ -12,5 +14,7 @@ public class BankAccount {
 	UUID id;
 	Client client;
 	Currency currency;
+	LocalDate createdOn;
+	ZonedDateTime createdAt;
 
 }

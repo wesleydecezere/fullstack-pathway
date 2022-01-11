@@ -1,11 +1,14 @@
 # Gets Wesley's Bank Account
 query GET_BANK_ACCOUNT($id: ID) {
     bankAccount(id: $id) {
+        currency
         client {
             id
             firstName
             lastName
         }
+        createdOn
+        createdAt
     }
 }
 

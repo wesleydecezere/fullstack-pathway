@@ -14,4 +14,14 @@ public class ScalarConfig {
 		return ExtendedScalars.NonNegativeInt;
 	}
 
+	@Bean
+	public GraphQLScalarType date() {
+		return ExtendedScalars.Date;
+	}
+
+	@Bean
+	public GraphQLScalarType dateTime() {
+		return ExtendedScalars.DateTime;
+	}
+
 }

@@ -1,3 +1,22 @@
+query GET_BANK_ACCOUNTS {
+    bankAccounts(first: 1) {
+        edges {
+            cursor
+            node {
+                id
+                createdAt
+                currency
+            }
+        }
+        pageInfo {
+            hasPreviousPage
+            hasNextPage
+            startCursor
+            endCursor
+        }
+    }
+}
+
 # Gets Wesley's Bank Account
 query GET_BANK_ACCOUNT($id: ID) {
     bankAccount(id: $id) {

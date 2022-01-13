@@ -1,6 +1,5 @@
 package br.ufsc.bridge.springbootgraphql.resolver.bank.query;
 
-import java.awt.Cursor;
 import java.time.Clock;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -15,6 +14,7 @@ import lombok.var;
 import org.springframework.stereotype.Component;
 
 import br.ufsc.bridge.springbootgraphql.connection.CursorUtil;
+import br.ufsc.bridge.springbootgraphql.context.CustomGraphQLContext;
 import br.ufsc.bridge.springbootgraphql.domain.bank.BankAccount;
 import br.ufsc.bridge.springbootgraphql.domain.bank.Currency;
 import br.ufsc.bridge.springbootgraphql.repository.BankAccountRepository;
@@ -31,7 +31,7 @@ import io.micrometer.core.lang.Nullable;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class BankAccountResolver implements GraphQLQueryResolver {
+public class BankAccountQueryResolver implements GraphQLQueryResolver {
 
 	private final Clock clock;
 	private final BankAccountRepository bankAccountRepository;
@@ -39,6 +39,10 @@ public class BankAccountResolver implements GraphQLQueryResolver {
 
 	public BankAccount bankAccount(UUID id, DataFetchingEnvironment environment) {
 		log.info("Retrieving bank account id: {}", id);
+
+		CustomGraphQLContext context = environment.getContext();
+
+ 		log.info("User ID: {}", context.getUserId());
 
 		return BankAccount.builder()
 				.id(id)

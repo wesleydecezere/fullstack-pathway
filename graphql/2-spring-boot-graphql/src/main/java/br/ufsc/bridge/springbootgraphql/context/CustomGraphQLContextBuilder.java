@@ -5,16 +5,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.websocket.Session;
 import javax.websocket.server.HandshakeRequest;
 
+import lombok.RequiredArgsConstructor;
 import lombok.var;
 
 import org.springframework.stereotype.Component;
+
+import br.ufsc.bridge.springbootgraphql.dataloader.DataLoaderRegistryFactory;
 
 import graphql.kickstart.execution.context.GraphQLContext;
 import graphql.kickstart.servlet.context.DefaultGraphQLServletContext;
 import graphql.kickstart.servlet.context.GraphQLServletContextBuilder;
 
 @Component
+@RequiredArgsConstructor
 public class CustomGraphQLContextBuilder implements GraphQLServletContextBuilder {
+
+	private final DataLoaderRegistryFactory dataLoaderRegistryFactory;
+
 	@Override
 	public GraphQLContext build(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
 
@@ -23,6 +30,7 @@ public class CustomGraphQLContextBuilder implements GraphQLServletContextBuilder
 		var context = DefaultGraphQLServletContext.createServletContext()
 				.with(httpServletRequest)
 				.with(httpServletResponse)
+				.with(dataLoaderRegistryFactory.create(userId))
 				.build();
 
 		return new CustomGraphQLContext(userId, context);

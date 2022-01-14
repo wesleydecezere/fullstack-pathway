@@ -1,5 +1,6 @@
 package br.ufsc.bridge.springbootgraphql.domain.bank;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.UUID;
@@ -16,5 +17,6 @@ public class BankAccount {
 	Currency currency;
 	LocalDate createdOn;
 	ZonedDateTime createdAt;
+	BigDecimal balance;
 
 }

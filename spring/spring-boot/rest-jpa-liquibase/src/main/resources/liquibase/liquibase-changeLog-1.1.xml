@@ -1,0 +1,19 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog logicalFilePath="liquibase/liquibase-changeLog.xml" xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="bridge (generated)" id="1637871223664-1">
+        <createTable tableName="purchases">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="purchasesPK"/>
+            </column>
+            <column name="amount" type="DECIMAL(10, 2)"/>
+            <column name="date" type="datetime"/>
+            <column name="purchaser_id" type="BIGINT"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="bridge (generated)" id="1637871223664-2">
+        <addForeignKeyConstraint baseColumnNames="purchaser_id" baseTableName="purchases" constraintName="FKmpi187ppsh9kkvtufndt35232" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="customers"/>
+    </changeSet>
+    <changeSet author="bridge (generated)" id="1637871223664-3">
+        <dropColumn columnName="amount_spent" tableName="customers"/>
+    </changeSet>
+</databaseChangeLog>

@@ -7,9 +7,10 @@ on:
     types: [ synchronize, opened, reopened, ready_for_review ]
 
 jobs:
-  run:
+  run_something:    
     if: github.event.pull_request.draft == false
     name: Run something
+    runs-on: self-hosted
 
     steps:
       - uses: actions/checkout@v2

@@ -17,5 +17,5 @@ jobs:
       
       - name: Show diff
         run: |
-          git show --name-only ${{ github.sha }}
+          git show --name-only ${{ github.sha }}..${{github.head_ref}}
           

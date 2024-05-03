@@ -17,5 +17,5 @@ jobs:
       
       - name: Show diff
         run: |
-          git diff --name-only ${{ github.sha }} --diff-filter= **e2e/**/*.cy.ts | tr '\n' ',' | sed 's/\(.*\),/\1\n/'
+          git diff --name-only ${{ github.sha }} | tr '\n' ',' | sed 's/\(.*\),/\1\n/'
           

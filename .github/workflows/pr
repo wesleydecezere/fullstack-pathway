@@ -1,0 +1,21 @@
+name: pr
+
+on:
+  pull_request:
+    branches:
+      - "*"
+    types: [ synchronize, opened, reopened, ready_for_review ]
+
+jobs:
+  run:
+    if: github.event.pull_request.draft == false
+    name: Run something
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Show diff
+        run: |
+          git show --pretty=format:'' --name-only ${{ github.ref }}
+          git show --pretty=format:'' --name-only ${{ github.sha }}
+          

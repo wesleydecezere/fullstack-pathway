@@ -7,15 +7,26 @@ on:
     types: [ synchronize, opened, reopened, ready_for_review ]
 
 jobs:
-  run_something:    
-    if: github.event.pull_request.draft == false
-    name: Run something
+  changed_files:
+    # NOTE:
+    # - This is limited to pull_request* events and would raise an error for other events.
+    # - A maximum of 3000 files can be returned.
+    # - For more flexibility and no limitations see "Using local .git directory" above.
+
     runs-on: ubuntu-latest
+    name: Test changed-files
+    permissions:
+      pull-requests: read
 
     steps:
-      - uses: actions/checkout@v2
-      
-      - name: Show diff
+      - name: Get changed files
+        id: changed-files
+        uses: tj-actions/changed-files@v44
+
+      - name: List all changed files
+        env:
+          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
         run: |
-          echo $(git diff --name-only HEAD --diff-filter= **e2e/**/*.cy.ts | tr '\n' ',' | sed 's/\(.*\),/\1\n/')
-          
+          for file in ${ALL_CHANGED_FILES}; do
+            echo "$file was changed"
+          done

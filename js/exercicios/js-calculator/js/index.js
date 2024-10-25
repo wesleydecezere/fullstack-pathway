@@ -20,6 +20,8 @@ main.addEventListener('click', (e) => {
       visor.put(target.value)
       break;
 
+    console.log("teste")
+
     case 'key op-pct':
       visor.put('/')
       visor.put('100')
